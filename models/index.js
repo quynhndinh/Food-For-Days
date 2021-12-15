@@ -1,6 +1,6 @@
 const User = require('./User');
-const Post = require('./Post');
-const Comment = require('./Comment');
+const Recipes = require('./Recipes');
+const Week = require('./Week');
 
 // ====================================
 // If we have Model A and Model B
@@ -16,45 +16,45 @@ const Comment = require('./Comment');
 
 // Establish many-to-one relationship with Post
 // Optional: remove the following statement to simplify the code
-User.hasMany(Post, {
+User.hasMany(Recipes, {
   foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 // Establish one-to-many relastionship with User
-Post.belongsTo(User, {
+Recipes.belongsTo(User, {
   foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 // Establish many-to-one relationship with Comment
 // Optional: remove the following statement to simplify the code
-User.hasMany(Comment, {
+User.hasMany(Week, {
   foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 // Establish many-to-one relationship with User
-Comment.belongsTo(User, {
+Week.belongsTo(User, {
   foreignKey: 'userId',
   onDelete: 'CASCADE'
 });
 
 // Establish one-to-many relationship with Comment
-Post.hasMany(Comment, {
+Week.hasMany(Recipes, {
   foreignKey: 'postId',
   onDelete: 'CASCADE'
 });
 
 // Establish one-to-many relationship with Post
 // Optional: remove the following statement to simplify the code
-Comment.belongsTo(Post, {
+Recipes.belongsTo(Week, {
   foreignKey: 'postId',
   onDelete: 'CASCADE'
 });
 
 module.exports = {
   User,
-  Comment,
-  Post
+  Week,
+  Recipes
 };
