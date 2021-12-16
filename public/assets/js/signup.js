@@ -1,6 +1,8 @@
 const signupFormHandler = async function(event) {
   event.preventDefault();
 
+// change usernames to email and make sure IDs match
+
   const usernameEl = document.querySelector('#username-input-signup');
   const passwordEl = document.querySelector('#password-input-signup');
 

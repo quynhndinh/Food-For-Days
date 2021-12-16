@@ -4,8 +4,6 @@ const express = require('express');
 const routes = require('./controllers');
 // Sessions
 const session = require('express-session');
-// Handlebars
-const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
 // Setup express app
@@ -27,11 +25,6 @@ const sess = {
   })
 };
 app.use(session(sess));
-
-// Handlebars
-const hbs = exphbs.create({ helpers });
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
 
 // Setup request data parser middleware
 app.use(express.json());

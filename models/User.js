@@ -26,6 +26,14 @@ User.init(
         len: [8],
       },
     },
+    week_planner_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "week",
+        key: "id",
+        unique: true
+      }
+    }
   },
   {
     hooks: {

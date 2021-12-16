@@ -11,13 +11,77 @@ Week.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    sunday_recipes_id: {},
-    monday_recipes_id: {},
-    tuesday_recipes_id: {},
-    wednesday_recipes_id: {},
-    thursday_recipes_id: {},
-    friday_recipes_id: {},
-    saturday_recipes_id: {},
+    sunday_recipes_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references:{
+        model: "recipes",
+        key: "id",
+        unique: false
+      },
+    },
+    monday_recipes_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references:{
+        model: "recipes",
+        key: "id",
+        unique: false
+      },
+    },
+    tuesday_recipes_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references:{
+        model: "recipes",
+        key: "id",
+        unique: false
+      },
+    },
+    wednesday_recipes_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references:{
+        model: "recipes",
+        key: "id",
+        unique: false
+      },
+    },
+    thursday_recipes_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references:{
+        model: "recipes",
+        key: "id",
+        unique: false
+      },
+    },
+    friday_recipes_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references:{
+        model: "recipes",
+        key: "id",
+        unique: false
+      },
+    },
+    saturday_recipes_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references:{
+        model: "recipes",
+        key: "id",
+        unique: false
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+        unique: true
+      }
+    }
   },
   {
     sequelize,
