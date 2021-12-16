@@ -1,9 +1,24 @@
 const router = require('express').Router();
-const { Post } = require('../../models/');
+const { Recipes } = require('../../models/');
 const withAuth = require('../../utils/auth');
+
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const recipesData = await Recipes.findAll({
+      where: {
+        cuisine: res.params.cuisine
+      }
+    });
+    res.status(200).json(recipesData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
+
+  
 
   try {
     const newPost = await Post.create({
