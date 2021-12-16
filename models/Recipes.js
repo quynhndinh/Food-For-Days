@@ -11,16 +11,42 @@ Recipes.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    img: {
+    cuisine: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    ingredients: {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    dietary: {
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    readyinminutes: {
+    source_url: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    pairingText: {
+    servings: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
+    ready_in: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    calories: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    // week_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "week",
+    //     key: "id",
+    //     unique: false
+    //   }
+    // }
   },
   {
     sequelize,

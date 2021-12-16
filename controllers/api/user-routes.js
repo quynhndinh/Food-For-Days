@@ -1,21 +1,33 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// called when a user signs up for website
+// email and password
+
 // URL: /api/user
 router.post('/', async (req, res) => {
   try {
     const newUser = await User.create({
-      // TODO: SET USERNAME TO USERNAME SENT IN REQUEST
+      // TODO: SET EMAIL TO EMAIL SENT IN REQUEST
+      // ??
 
       // TODO: SET PASSWORD TO PASSWORD SENT IN REQUEST
+      // password: req.session.password
+      // ???
     });
 
     req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-
-      // TODO: SET USERNAME username IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
+      req.session.user_id = newUser.id;
+      // TODO: SET EMAIL email IN REQUEST SESSION TO EMAIL RETURNED FROM DATABASE
+      req.session.email = newUser.id;
 
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
+      req.session.logged_in = true;
+      
+
+      // only saving userID, email
+      // not saving password?
 
       res.json(newUser);
     });
@@ -30,7 +42,7 @@ router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
-        username: req.body.username,
+        email: req.body.email,
       },
     });
 
