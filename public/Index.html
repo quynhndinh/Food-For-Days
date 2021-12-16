@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-    <link rel="style" href="./asset/style.css" />
+    <link rel="style" href="./public/asset/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Food For Days</title>
@@ -60,12 +60,39 @@
     </nav>
 
     <!-- search bar container -->
-    <div class="search-container">
-      <form action="/action_page.php">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
-      </form>
+    <div class="select-bar">
+      <label for="pickCuisine"> Select </label>
+      <select name="pick" id="cuisine">
+        <option aria-placeholder="">Click To Select Cuisine</option>
+        <option value="african">African</option>
+        <option value="american">American</option>
+        <option value="british">British</option>
+        <option value="cajun">Cajun</option>
+        <option value="caribbean">Caribbean</option>
+        <option value="chinese">Chinese</option>
+        <option value="eastern european">Eastern European</option>
+        <option value="european">European</option>
+        <option value="french">French</option>
+        <option value="greek">Greek</option>
+        <option value="indian">Indian</option>
+        <option value="irish">Irish</option>
+        <option value="italina">Italian</option>
+        <option value="japanese">Japanese</option>
+        <option value="jewish">Jewish</option>
+        <option value="korean">Korean</option>
+        <option value="latin american">Latin American</option>
+        <option value="mediterranean">Mediterranean</option>
+        <option value="mexican">Mexican</option>
+        <option value="middle eastern">Middle Eastern</option>
+        <option value="nordic">Nordic</option>
+        <option value="southern">Southern</option>
+        <option value="spanish">Spanish</option>
+        <option value="thai">Thai</option>
+        <option value="vietnamese">Vietnamese</option>
+      </select>
     </div>
+
+    <div class= "recipe_container"></div>
 
     <script src="./asset/dropdown.js"></script>
   </body>
