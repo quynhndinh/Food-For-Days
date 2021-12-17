@@ -1,7 +1,7 @@
 
 const { Category } = require('../models');
 
-const recipeData = 
+const recipeData = [];
 const categoryData = [
   {
     // cuisine: 'italian
