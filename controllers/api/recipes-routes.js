@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipes } = require('../../models/');
+const { Recipes } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // given a cuisine, return all recipes with that cuisine
