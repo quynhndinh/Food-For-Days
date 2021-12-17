@@ -47,3 +47,9 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
+
+res.render(“homepage”, {
+  posts: posts,
+  loggedIn: req.session.loggedIn,
+});
