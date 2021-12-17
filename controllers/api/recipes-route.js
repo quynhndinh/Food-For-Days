@@ -2,21 +2,7 @@ const router = require('express').Router();
 const { Recipes } = require('../../models/');
 const withAuth = require('../../utils/auth');
 
-// given a cuisine, return all recipes with that cuisine
-// parameter needed is cuisine
-
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const recipesData = await Recipes.findAll({
-      where: {
-        cuisine: res.params.cuisine
-      }
-    });
-    res.status(200).json(recipesData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// posting
 
 
 // user will input email to then send 'source_url' to that email

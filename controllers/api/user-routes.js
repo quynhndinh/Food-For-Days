@@ -4,6 +4,8 @@ const { User } = require('../../models');
 // called when a user signs up for website
 // email and password
 
+// posting
+
 // URL: /api/user
 router.post('/', async (req, res) => {
   try {

@@ -1,11 +1,29 @@
 const router = require('express').Router();
-const { Post } = require('../models/');
+const { Recipes, User } = require('../models');
 const withAuth = require('../utils/auth');
+
+// getting
+
+// get all recipes for the USERS cookbook
+// MUST 
+
+router.get('/', async (req, res) => {
+  try {
+    const recipeData = await Recipes.findAll({
+      include: [User],
+    });
+    const posts = postData.map((post) => post.get({ plain: true }));
+    res.render('all-posts', { posts });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findAll({
+    const recipeData = await Recipes.findAll({
       where: {
+
         // TODO: SET USERID userId TO THE REQUEST SESSION LOGGED-IN USER ID
       },
     });
@@ -49,7 +67,7 @@ router.get('/edit/:id', withAuth, async (req, res) => {
 module.exports = router;
 
 
-res.render(“homepage”, {
-  posts: posts,
-  loggedIn: req.session.loggedIn,
-});
+// res.render(“homepage”, {
+//   posts: posts,
+//   loggedIn: req.session.loggedIn,
+// });
