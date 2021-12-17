@@ -50,12 +50,3 @@ Recipe.init(
 );
 
 module.exports = Recipe;
-
-// {
-//   cuisine: "italian",
-//   title: "Meata balls",
-//   image_url: "image.com"
-//   recipe_url: "recipe.com"
-//   servings: 4,
-//   ready_in: 25
-// }

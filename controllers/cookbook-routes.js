@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipes, User } = require('../models');
+const { Recipe, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // getting
@@ -9,7 +9,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const recipeData = await Recipes.findAll({
+    const recipeData = await Recipe.findAll({
       include: [User],
     });
     const posts = postData.map((post) => post.get({ plain: true }));

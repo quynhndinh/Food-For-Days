@@ -1,11 +1,6 @@
 const User = require('./User');
-<<<<<<< HEAD
-const Recipe = require('./UserRecipe');
-const UserRecipe = require('./UserRecipe')
-=======
 const Recipe = require('./Recipe');
 const UserRecipe = require('./UserRecipe');
->>>>>>> 9d66d42fd4912039f871aa92036ad781ff2adab5
 
 User.hasMany(UserRecipe, {
   foreignKey: 'user_id',

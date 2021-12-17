@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipes } = require('../../models');
+const { Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // posting
@@ -21,13 +21,6 @@ router.post('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-
-
-
-
-
-
 
 
 
