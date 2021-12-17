@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS meal_planner_db;
+DROP DATABASE IF EXISTS cookbook_db;
 
-CREATE DATABASE meal_planner_db;
+CREATE DATABASE cookbook_db;

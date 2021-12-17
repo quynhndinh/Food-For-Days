@@ -1,16 +1,27 @@
 const User = require('./User');
-const Recipes = require('./Recipes');
+const Recipe = require('./Recipe');
+const UserRecipe = require('./UserRecipe');
 
-Recipes.belongsTo(User, {
+User.hasMany(UserRecipe, {
   foreignKey: 'user_id',
-})
+  onDelete: 'SET NULL'
+});
 
-User.hasMany(Recipes, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
-})
+Recipe.hasMany(UserRecipe, {
+  foreignKey: 'recipe_id',
+  onDelete: 'SET NULL'
+});
+
+UserRecipe.belongsTo(User,{
+  foreignKey: 'user_id' // never care about onDelete with children, just parents
+});
+
+UserRecipe.belongsTo(Recipe,{
+  foreignKey: 'recipe_id'
+});
 
 module.exports = {
   User,
-  Recipes
+  Recipe,
+  UserRecipe
 };
