@@ -1,10 +1,7 @@
 const path = require('path');
 const express = require('express');
-// Routes
 const routes = require('./controllers');
-// Sessions
 const session = require('express-session');
-const helpers = require('./utils/helpers');
 
 // Setup express app
 const app = express();
