@@ -1,39 +1,19 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../models/');
+const { Recipes, User } = require('../models/');
+const withAuth = require('../utils/auth');
 
-// get all posts for homepage
-router.get('/', async (req, res) => {
+// given a cuisine, return all recipes with that cuisine
+// parameter needed is cuisine
+
+// get all recipes for cuisine search
+router.get('/', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      include: [User],
+    const recipesData = await Recipes.findAll({
+      where: {
+        cuisine: res.params.cuisine
+      }
     });
-
-    const posts = postData.map((post) => post.get({ plain: true }));
-
-    res.render('all-posts', { posts });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-// get single post
-router.get('/post/:id', async (req, res) => {
-  try {
-    const postData = await Post.findByPk(
-      // HINTS:
-      //  FIRST ARGUMENT IS PRIMARY KEY 'I'D PASSED IN THE END POINT
-      //  SECOND ARGUMENT IS AN OBJECT IN WHICH YOU USE PROPERTY 'INCLUDE' TO INCLUDE USER
-      //  AND COMMENT
-      // TODO: YOUR CODE HERE
-    );
-
-    if (postData) {
-      const post = postData.get({ plain: true });
-
-      res.render('single-post', { post });
-    } else {
-      res.status(404).end();
-    }
+    res.status(200).json(recipesData);
   } catch (err) {
     res.status(500).json(err);
   }
