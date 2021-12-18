@@ -11,7 +11,7 @@ UserRecipe.init(
 			primaryKey: true,
 			autoIncrement: true
 		},
-		user_id: {
+		userId: {
 			type: DataTypes.INTEGER,
 			references: {
 				model: 'user',
@@ -19,7 +19,7 @@ UserRecipe.init(
 				unique: false
 			}
 		},
-		recipe_id: {
+		recipeId: {
 			type: DataTypes.INTEGER,
 			references: {
 				model: 'recipe',
