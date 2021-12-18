@@ -5,9 +5,8 @@ const withAuth = require('../utils/auth');
 // getting
 
 // get all recipes for the USERS cookbook
-// MUST 
 
-router.get('/', async (req, res) => {
+router.get('/profile', async (req, res) => {
   try {
     const recipeData = await Recipe.findAll({
       include: [User],
