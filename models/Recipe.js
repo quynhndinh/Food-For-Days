@@ -23,7 +23,7 @@ Recipe.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    source_url: {
+    sourceUrl: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -31,7 +31,7 @@ Recipe.init(
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    ready_in: {
+    readyIn: {
       type: DataTypes.INTEGER,
       allowNull: false
     },

@@ -13,12 +13,14 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-
-      // TODO: SET USERNAME username IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
-
+      req.session.user_id = newUser.id;
+  
+      // TODO: SET EMAIL email IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
+      req.session.email = newUser.email;
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
+      req.session.logged_in = true;
 
-      res.json(newUser);
+      res.status(200).json(newUser);
     });
   } catch (err) {
     res.status(500).json(err);
@@ -27,49 +29,53 @@ router.post('/', async (req, res) => {
 
 
 // Endpoint: /api/user/login
-// router.post('/login', async (req, res) => {
-//   try {
-//     const user = await User.findOne({
-//       where: {
-//         email: req.body.email,
-//       },
-//     });
+// params: email and password
+router.post('/login', async (req, res) => {
+  try {
+    console.log(req.body)
+    const user = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
 
-//     if (!user) {
-//       res.status(400).json({ message: 'No user account found!' });
-//       return;
-//     }
+    if (!user) {
+      res.status(400).json({ message: 'No user account found!' });
+      return;
+    }
 
-//     const validPassword = user.checkPassword(req.body.password);
+    const validPassword = user.checkPassword(req.body.password);
 
-//     if (!validPassword) {
-//       res.status(400).json({ message: 'No user account found!' });
-//       return;
-//     }
+    if (!validPassword) {
+      res.status(400).json({ message: 'No user account found!' });
+      return;
+    }
 
-    //knows that user is logged in 
-    // req.session.save(() => {
+    // knows that user is logged in 
+    req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-
-      // TODO: SET USERNAME username IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
-
+      req.session.user_id = user.id;
+      // TODO: SET EMAIL email IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
+      req.session.email = user.email;
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
+      req.session.logged_in = true;
 
-//       res.json({ user, message: 'You are now logged in!' });
-//     });
-//   } catch (err) {
-//     res.status(400).json({ message: 'No user account found!' });
-//   }
-// });
+      res.json({ user, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+    res.status(400).json({ message: 'No user account found!' });
+  }
+});
 
 //URL api/user/logout
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  console.log(req.session);
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
-    res.status(404).end();
+    res.status(500).end();
   }
 });
 

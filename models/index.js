@@ -3,21 +3,21 @@ const Recipe = require('./Recipe');
 const UserRecipe = require('./UserRecipe');
 
 User.hasMany(UserRecipe, {
-  foreignKey: 'user_id',
+  foreignKey: 'userId',
   onDelete: 'SET NULL'
 });
 
 Recipe.hasMany(UserRecipe, {
-  foreignKey: 'recipe_id',
+  foreignKey: 'recipeId',
   onDelete: 'SET NULL'
 });
 
 UserRecipe.belongsTo(User,{
-  foreignKey: 'user_id'
+  foreignKey: 'userId'
 });
 
 UserRecipe.belongsTo(Recipe,{
-  foreignKey: 'recipe_id'
+  foreignKey: 'recipeId'
 });
 
 module.exports = {
