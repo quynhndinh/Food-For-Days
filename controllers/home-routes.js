@@ -6,12 +6,12 @@ const withAuth = require('../utils/auth');
 // parameter needed is cuisine
 
 // get all recipes for cuisine search
-// URL: /api
+// Endpoint: /
 router.get('/', withAuth, async (req, res) => {
   try {
     const recipeData = await Recipe.findAll({
       where: {
-        cuisine: res.params.cuisine
+        cuisine: req.body.cuisine
       }
     });
     res.status(200).json(recipeData);
@@ -20,6 +20,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+// Endpoint: /login
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -29,6 +30,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Endpoint: /signup
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
