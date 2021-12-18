@@ -1,36 +1,22 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-
-// called when a user signs up for website
-// email and password
-
 // posting
 
-// URL: /api/user
+// creating a new user account - sign up
+// Endpoint: /api/user
+// params: email and password
 router.post('/', async (req, res) => {
   try {
-    const newUser = await User.create({
-      // TODO: SET EMAIL TO EMAIL SENT IN REQUEST
-      // ??
-
-      // TODO: SET PASSWORD TO PASSWORD SENT IN REQUEST
-      // password: req.session.password
-      // ???
-    });
+    console.log(req.body)
+    const newUser = await User.create(req.body);
 
     req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-      req.session.user_id = newUser.id;
-      // TODO: SET EMAIL email IN REQUEST SESSION TO EMAIL RETURNED FROM DATABASE
-      req.session.email = newUser.id;
+
+      // TODO: SET USERNAME username IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
 
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
-      req.session.logged_in = true;
-      
-
-      // only saving userID, email
-      // not saving password?
 
       res.json(newUser);
     });
@@ -40,41 +26,43 @@ router.post('/', async (req, res) => {
 });
 
 
-// URL: /api/user/login
-router.post('/login', async (req, res) => {
-  try {
-    const user = await User.findOne({
-      where: {
-        email: req.body.email,
-      },
-    });
+// Endpoint: /api/user/login
+// router.post('/login', async (req, res) => {
+//   try {
+//     const user = await User.findOne({
+//       where: {
+//         email: req.body.email,
+//       },
+//     });
 
-    if (!user) {
-      res.status(400).json({ message: 'No user account found!' });
-      return;
-    }
+//     if (!user) {
+//       res.status(400).json({ message: 'No user account found!' });
+//       return;
+//     }
 
-    const validPassword = user.checkPassword(req.body.password);
+//     const validPassword = user.checkPassword(req.body.password);
 
-    if (!validPassword) {
-      res.status(400).json({ message: 'No user account found!' });
-      return;
-    }
+//     if (!validPassword) {
+//       res.status(400).json({ message: 'No user account found!' });
+//       return;
+//     }
 
-    req.session.save(() => {
+    //knows that user is logged in 
+    // req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
 
       // TODO: SET USERNAME username IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
 
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
 
-      res.json({ user, message: 'You are now logged in!' });
-    });
-  } catch (err) {
-    res.status(400).json({ message: 'No user account found!' });
-  }
-});
+//       res.json({ user, message: 'You are now logged in!' });
+//     });
+//   } catch (err) {
+//     res.status(400).json({ message: 'No user account found!' });
+//   }
+// });
 
+//URL api/user/logout
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {

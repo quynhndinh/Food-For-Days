@@ -1,19 +1,20 @@
 const router = require('express').Router();
-const { Recipes, User } = require('../models/');
+const { Recipe } = require('../models/');
 const withAuth = require('../utils/auth');
 
 // given a cuisine, return all recipes with that cuisine
 // parameter needed is cuisine
 
 // get all recipes for cuisine search
+// URL: /api
 router.get('/', withAuth, async (req, res) => {
   try {
-    const recipesData = await Recipes.findAll({
+    const recipeData = await Recipe.findAll({
       where: {
         cuisine: res.params.cuisine
       }
     });
-    res.status(200).json(recipesData);
+    res.status(200).json(recipeData);
   } catch (err) {
     res.status(500).json(err);
   }

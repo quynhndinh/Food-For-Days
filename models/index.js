@@ -13,7 +13,7 @@ Recipe.hasMany(UserRecipe, {
 });
 
 UserRecipe.belongsTo(User,{
-  foreignKey: 'user_id' // never care about onDelete with children, just parents
+  foreignKey: 'user_id'
 });
 
 UserRecipe.belongsTo(Recipe,{

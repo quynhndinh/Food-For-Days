@@ -14,7 +14,6 @@ const router = require('express').Router();
 const apiRoutes = require('./api');
 const homeRoutes = require('./home-routes');
 const cookbookRoutes = require('./cookbook-routes');
-// const testRoutes = require('./testRoutes');
 
 router.use('/', homeRoutes);
 router.use('/cookbook', cookbookRoutes);
