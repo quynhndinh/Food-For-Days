@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe } = require('../../models');
+const { Recipe, User, UserRecipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 var nodemailer = require('nodemailer');
 var chalk = require('chalk');
@@ -43,22 +43,20 @@ function sendRecipe(email, sourceUrl) {
 // user will input email to then send 'sourceUrl' to that email
 
 // Endpoint: /api/recipe/email 
-// Params:  email       email address where you want to send
-//          sourceUrl  url of recipe you want to send
+// Params: sourceUrl url of recipe you want to send
 
-router.post('/email', async (req, res) => {
+router.post('/email', withAuth, async (req, res) => {
       console.log("in router.post");
-      const body = req.body;
       try {
-    
-        // TODO: Retrieve user email and recipe link from body
+		
+        // TODO: Retrieve recipe link from body
         // ?? Not sure if we need to do this within the try and what would be 
         // in the await
-        // Send recipe link to given email
-        sendRecipe(req.body.email, req.body.sourceUrl);
+        // Send recipe link to logged in users email 
+        sendRecipe(req.session.email, req.body.sourceUrl);
 // TODO figure out what goes in the await and how to return errors properly.
         
-        res.status(200).body("Recipe " + sourceUrl, " sent to " + email);
+        res.status(200).body("Recipe " + req.body.sourceUrl, " sent to " + req.session.email);
       } catch (err) {
         console.error(err);
         res.status(500).json(err);
@@ -67,46 +65,21 @@ router.post('/email', async (req, res) => {
     
     
 
-//user_id , recipe_id
+//userId , recipeId
 //this is adding a recipe to a user which we do through UserRecipe
 //endpoint is /recipe
-// router.post('/', withAuth, async (req, res) => {
-//   const body = req.body;
-//   try {
-//     const newPost = await Post.create({
-//     //const newUserRecipe = await UserRecipe.create({
-//     //save user_id and recipe_id
-//   })
-// TODO: POST BODY SENT IN REQUEST. HINT USING SPREAD
+router.post('/', withAuth, async (req, res) => {
+	console.log("****************************")
+  try {
+    const newUserRecipe = await UserRecipe.create({
+	userId: req.session.userId,
+	recipeId: req.body.recipeId
+  })
+  res.status(200).json(newUserRecipe);
+} catch (err) {
+  res.status(400).json(err);
+}
+});
 
-// TODO: SET USERID userId TO LOGGEDIN USERID
-
-//     });
-//     res.json(newPost);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-//email, recipe_id
-//this is emailing a recipe to an email
-//endpoint is /recipe/email
-// router.post('/email', withAuth, async (req, res) => {
-//   const body = req.body;
-//   try {
-//     const newPost = await Post.create({
-//     //const newUserRecipe = await UserRecipe.create({
-//     //save user_id and recipe_id
-//   })
-//       // TODO: POST BODY SENT IN REQUEST. HINT USING SPREAD
-
-//       // TODO: SET USERID userId TO LOGGEDIN USERID
-
-//     });
-//     res.json(newPost);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;

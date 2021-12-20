@@ -1,27 +1,24 @@
 const signupFormHandler = async function(event) {
   event.preventDefault();
+  console.log("SignupFormHandler");
 
-// change usernames to email and make sure userId match **Camelcase
+  const email = document.querySelector('#email-signup').value.trim();;
+  const password = document.querySelector('#password-signup').value.trim();;
 
-  const usernameEl = document.querySelector('#username-input-signup');
-  const passwordEl = document.querySelector('#password-input-signup');
-
+  if (email && password) {
   const response = await fetch('/api/user', {
     method: 'POST',
-    body: JSON.stringify({
-      username: usernameEl.value,
-      password: passwordEl.value,
-    }),
+    body: JSON.stringify({ email, password }),
     headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/');
   } else {
     alert('Failed to sign up');
   }
-};
+}};
 
 document
-  .querySelector('#signup-form')
-  .addEventListener('submit', signupFormHandler);
+  .querySelector('#submitx')
+  .addEventListener('click', signupFormHandler);
