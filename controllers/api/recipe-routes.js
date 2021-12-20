@@ -67,7 +67,7 @@ router.post('/email', async (req, res) => {
     
     
 
-//user_id , recipe_id
+//userId , recipeId
 //this is adding a recipe to a user which we do through UserRecipe
 //endpoint is /recipe
 // router.post('/', withAuth, async (req, res) => {
@@ -96,7 +96,7 @@ router.post('/email', async (req, res) => {
 //   try {
 //     const newPost = await Post.create({
 //     //const newUserRecipe = await UserRecipe.create({
-//     //save user_id and recipe_id
+//     //save userId and recipeId
 //   })
 //       // TODO: POST BODY SENT IN REQUEST. HINT USING SPREAD
 

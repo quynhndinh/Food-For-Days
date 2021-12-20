@@ -7,7 +7,7 @@ const withAuth = require('../utils/auth');
 
 // get all recipes for cuisine search
 // Endpoint: /
-router.get('/', withAuth, async (req, res) => {
+router.get('/cuisine', withAuth, async (req, res) => {
   try {
     const recipeData = await Recipe.findAll({
       where: {
