@@ -71,8 +71,10 @@ body{
     background-color: rgba(0,0,0,.1);
 }
 
-
-
 #id img{
     right: 6rem;
+}
+
+.button {
+    margin-left: 20px
 }
