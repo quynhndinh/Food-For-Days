@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Recipe, User, UserRecipe } = require('../../models');
+const { Recipe, UserRecipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 var nodemailer = require('nodemailer');
 var chalk = require('chalk');
