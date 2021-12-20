@@ -48,7 +48,7 @@ function sendRecipe(email, sourceUrl) {
 router.post('/email', withAuth, async (req, res) => {
       console.log("in router.post");
       try {
-		
+        
         // TODO: Retrieve recipe link from body
         // ?? Not sure if we need to do this within the try and what would be 
         // in the await
@@ -56,7 +56,7 @@ router.post('/email', withAuth, async (req, res) => {
         sendRecipe(req.session.email, req.body.sourceUrl);
 // TODO figure out what goes in the await and how to return errors properly.
         
-        res.status(200).body("Recipe " + req.body.sourceUrl, " sent to " + req.session.email);
+        res.status(200).json({message: `Email sent to ${req.session.email}`});
       } catch (err) {
         console.error(err);
         res.status(500).json(err);
