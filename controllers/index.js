@@ -12,10 +12,9 @@ holders for endpoint routing.
 const router = require('express').Router();
 
 const apiRoutes = require('./api');
-const homeRoutes = require('./home-routes');
+const homeRoutes = require('./home-html');
 
 router.use('/', homeRoutes);
-router.use('/cookbook', cookbookRoutes);
 router.use('/api', apiRoutes);
 
 module.exports = router;

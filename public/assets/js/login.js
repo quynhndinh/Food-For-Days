@@ -1,27 +1,23 @@
 const loginFormHandler = async function(event) {
   event.preventDefault();
+  console.log("loginFormHandler");
 
-// change usernames to email and make sure userId match **Camelcase
-
-  const emailEL = document.querySelector('#email-login');
-  const passwordEl = document.querySelector('#password-login');
+  const email = document.querySelector('#email-login').value.trim();
+  const password = document.querySelector('#password-login').value.trim();
 
   const response = await fetch('/api/user/login', {
     method: 'POST',
-    body: JSON.stringify({
-      email: emailEL.value,
-      password: passwordEl.value,
-    }),
+    body: JSON.stringify({ email, password }),
     headers: { 'Content-Type': 'application/json' },
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/');
   } else {
     alert('Failed to login');
   }
 };
 
 document
-  .querySelector('#email')
-  .addEventListener('#submit', loginFormHandler);
+  .querySelector('#submit')
+  .addEventListener('click', loginFormHandler);
