@@ -9,7 +9,7 @@ var chalk = require('chalk');
 var transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: 'bootcamp202112@gmail.com',
+		user: 'foodfordays.email@gmail.com',
 		pass: 'BootCamp1sFun'
 	}
 });
@@ -18,7 +18,7 @@ var transporter = nodemailer.createTransport({
 function sendRecipe(email, sourceUrl) {
 	// Set up default
 	var mailOptions = {
-		from: 'bootcamp202112@gmail.com',
+		from: 'foodfordays.email@gmail.com',
 		to: 'lindalw03@gmail.com',
 		subject: 'Recipe from Food-For-Days',
 		text: 'Here is your recipe link: '
@@ -63,11 +63,23 @@ router.post('/email', withAuth, async (req, res) => {
       }
     });
     
-    
+// Endpoint: /api/recipe/cuisine
+router.get('/cuisine', async (req, res) => {
+    try {
+      const recipeData = await Recipe.findAll({
+        where: {
+          cuisine: req.body.cuisine
+        }
+      });
+      res.status(200).json(recipeData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
-//userId , recipeId
+//recipeId
 //this is adding a recipe to a user which we do through UserRecipe
-//endpoint is /recipe
+//endpoint: /api/recipe
 router.post('/', withAuth, async (req, res) => {
 	console.log("****************************")
   try {
@@ -80,6 +92,5 @@ router.post('/', withAuth, async (req, res) => {
   res.status(400).json(err);
 }
 });
-
 
 module.exports = router;

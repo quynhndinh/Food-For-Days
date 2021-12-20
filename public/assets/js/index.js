@@ -19,56 +19,56 @@ let bodyElement = document.body;
 //         // parse return data w for loop
 //          // for each recipe in for loop creating element and assigning
 //         // create card
-//         for (let i = 0; i < recipesData.length; i++) {
+        for (let i = 0; i < recipesData.length; i++) {
 
-//             //The document.createElement() method create html elements specified by tagName
-//             let cardElement = document.createElement('div');
-//             let imageContainer = document.createElement('div');
-//             let infoContainer = document.createElement('div');
+            //The document.createElement() method create html elements specified by tagName
+            let cardElement = document.createElement('div');
+            let imageContainer = document.createElement('div');
+            let infoContainer = document.createElement('div');
             
-//             let imageElement = document.createElement('img');
-//             let titleElement = document.createElement('h5');
-//             let servingElement = document.createElement('p');
+            let imageElement = document.createElement('img');
+            let titleElement = document.createElement('h5');
+            let servingElement = document.createElement('p');
 
-//             let btnElement = document.createElement('a');
-//             let btnElementTwo = document.createElement('a');
+            let btnElement = document.createElement('a');
+            let btnElementTwo = document.createElement('a');
 
-//             //The ClassName property gets and sets the value of the class attribute of the spefified element
-//             cardElement.className = "card";
-//             imageContainer.className = "image-container";
-//             infoContainer.className = "info-container";
+            //The ClassName property gets and sets the value of the class attribute of the spefified element
+            cardElement.className = "card";
+            imageContainer.className = "image-container";
+            infoContainer.className = "info-container";
 
-//             imageElement.className = "image";
-//             titleElement.className = "title";
-//             servingElement.className = "serving";
+            imageElement.className = "image";
+            titleElement.className = "title";
+            servingElement.className = "serving";
 
-//             btnElement.className = "btn";
-//             btnElementTwo.className = "btn";
+            btnElement.className = "btn";
+            btnElementTwo.className = "btn";
 
-//             //Works the same way as the className property except it sets the source of the imageElement
-//             imageElement.src = recipesData[i].image;
+            //Works the same way as the className property except it sets the source of the imageElement
+            imageElement.src = recipesData[i].image;
 
-//             // This sets the value of an attribute specified element. If exists then will be updated, otherwise the new attribute is added with the specified name and value
-//             btnElement.setAttribute("href", recipesData[i].source_url);
+            // This sets the value of an attribute specified element. If exists then will be updated, otherwise the new attribute is added with the specified name and value
+            btnElement.setAttribute("href", recipesData[i].source_url);
     
 
-//             // title, servings, ready in
-//             titleElement.innerText = recipesData[i].title;
-//             servingElement.innerText = recipesData[i].servings;
-//             readyElement.innerText = recipesData[i].ready_in;
+            // title, servings, ready in
+            titleElement.innerText = recipesData[i].title;
+            servingElement.innerText = recipesData[i].servings;
+            readyElement.innerText = recipesData[i].ready_in;
 
 
 
 
-//             // paragraphElement.innerText = "This sets the value of an attribute specified element. If exists then will be updated.";
-//             btnElement.innerText = "Recipe/Instructions";
-//             btnElementTwo.innerText = "Save Meal";
+            // paragraphElement.innerText = "This sets the value of an attribute specified element. If exists then will be updated.";
+            btnElement.innerText = "Recipe/Instructions";
+            btnElementTwo.innerText = "Save Meal";
 
-//             bodyElement.appendChild(cardElement);
-//             cardElement.append(imageContainer, infoContainer);
-//             imageContainer.appendChild(imageElement);
-//             infoContainer.append(titleElement, paragraphElement, btnElement, btnElementTwo);
-//     }});
+            bodyElement.appendChild(cardElement);
+            cardElement.append(imageContainer, infoContainer);
+            imageContainer.appendChild(imageElement);
+            infoContainer.append(titleElement, paragraphElement, btnElement, btnElementTwo);
+    }});
 
 function generateCard() {
     let _wrapperAnchor = $("<a>");
