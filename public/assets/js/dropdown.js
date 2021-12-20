@@ -1,25 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
+$('#burgermenu').on('click', ()=> {
+  $('#dropdown').toggle('is-active')
+})
 
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-  
-      // Add a click event on each of them
-      $navbarBurgers.forEach( el => {
-        el.addEventListener('click', () => {
-  
-          // Get the target from the "data-target" attribute
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-  
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-  
-        });
-      });
-    }
-  
+// $('#select-cuisine').on('click', ()=> {
+//   $('#description').addClass('hide')
+//   console.log($(this))
+//   const option = $(this).text()
+//   console.log(option)
+// })
+
+$(document).ready(function(){
+  $("#select-button").click(function(){
+    $("#description").empty();
   });
+});
+
+// $('#select-cuisine').on('click', ()=> {
+//   $('#description').addClass('hide')
+//   $("#choice").val($(this).text());
+//   console.log(this)
+//   })
+
+
+// const searchBtn = document.getElementById('#search-button')
+
+// searchBtn.addEventListener('click', () => getCuisineData(inputField.value));
+
+dropdownEl.addEventListener(
+  "click",
+  (event) => event.key === "Enter" && submitBtn.click()
+);

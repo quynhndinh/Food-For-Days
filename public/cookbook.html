@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,32 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="reset" href="/public/assets/css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="style" href="/public/assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <link rel="style" href="/public/assets/css/style.css" />
+
     <title>Food For Days</title>
   </head>
 
   <body>
     <!-- navigation bar start -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" id='navmenu'role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <img src="./assets/image/food logo.jpg" alt="Food For Days" style="max-width: 6rem">
         <a class="navbar-item" href="Index.html">
           <h1 class="title" style="color: #50c557;">Food For Days</h1>
         </a>
 
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="dropdown"
-        >
+        <a role="button" class="navbar-burger" id="burgermenu" aria-label="menu" aria-expanded="false" data-target="dropdown">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -40,9 +32,9 @@
       <div id="dropdown" class="navbar-menu">
         <div class="navbar-start">
 
-          <a class="navbar-item"> Search For Recipes </a>
+          <a class="navbar-item" href="Index.html"> Search For Recipes </a>
 
-          <a class="navbar-item"> Cookbook </a>
+          <a class="navbar-item" href="cookbook.html"> Cookbook </a>
 
           <a class="navbar-item"> Contact </a>
         </div>
@@ -54,123 +46,98 @@
                 <strong>Sign up</strong>
               </a>
               <a class="button is-light" id="login"> Log in </a>
+
+              <a class="button is-light" id="logout"> Logout </a>
+
             </div>
           </div>
         </div>
       </div>
     </nav>
 
-    <!-- login modal -->
-    <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content has-background-white py-5 px-5">
-        <div class="field">
-          <p class="control has-icons-left has-icons-right">
-            <input class="input" id="email-login" type="email" placeholder="Email">
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </p>
-        </div>
-        <div class="field">
-          <p class="control has-icons-left">
-            <input class="input" id="password-login" type="password" placeholder="Password">
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
-            <button class="button" style="background-color: #50c557; left: 250px; up: 20px">Summit</button>
-          </p>
-        </div>
-        </div>
-      </div>
+<!-- signup modal -->
+<div class="modal" id="signup-modal">
+  <div class="modal-background"></div>
+  <div class="modal-content has-background-white py-5 px-5">
+    <div class="field">
+
+      <p class="control has-icons-left has-icons-right">
+        <input class="input" id="email-signup" type="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
     </div>
-
-    <!-- signup modal -->
-    <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content has-background-white py-5 px-5">
-        <div class="field">
-
-          <p class="control has-icons-left has-icons-right">
-            <input class="input" id="email-signup" type="email" placeholder="Email">
-            <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
-            </span>
-            <span class="icon is-small is-right">
-              <i class="fas fa-check"></i>
-            </span>
-          </p>
-        </div>
-        <div class="field">
-          <p class="control has-icons-left">
-            <input class="input" id="password-signup" type="password" placeholder="Password">
-            <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
-            </span>
-            <button class="button" style="background-color: #50c557; left: 250px; up: 20px">signup</button>
-          </p>
-        </div>
-        </div>
-      </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" id="password-signup" type="password" placeholder="Password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+        <button class="button" id="submitx" style="background-color: #50c557; left: 250px;">Sign Up</button>
+      </p>
     </div>
-
-    <!-- search bar dropdown -->
-    <div id="searchbox" style="display: table-caption; position: relative;"> 
-      <div class="dropdown">
-        <div class="dropdown-trigger">
-          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" style="margin-left: 30px">
-            <span>Select A Cuisine</span>
-            <span class="icon is-small">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-          <div class="dropdown-content">
-            <a value="african" class="dropdown-item">
-              African
-            </a>
-            <a href="american" class="dropdown-item">
-              American
-            </a>
-            <a href="british" class="dropdown-item is-active">
-              British
-            </a>
-            <a href="cajun" class="dropdown-item">
-              Cajun
-            </a>
-            <a href="caribbean" class="dropdown-item">
-              Caribbean
-            </a>
-            <a href="chinese" class="dropdown-item">
-              Chinese
-            </a>
-            <a href="eastern-european" class="dropdown-item">
-              Eastern European
-            </a>
-            <a href="european" class="dropdown-item">
-              European
-            </a>
-            <a href="french" class="dropdown-item">
-              French
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
-    
+  </div>
+</div>
 
-    <!-- recipe cards section -->
-    <section class="recipe-cards" id="recipe-cards">
-      <!-- insert cards div -->
-    </section>
+<!-- login modal -->
+<div class="modal" id="login-modal">
+  <div class="modal-background"></div>
+  <div class="modal-content has-background-white py-5 px-5">
+    <div class="field">
 
+      <p class="control has-icons-left has-icons-right">
+        <input class="input" id="email-login" type="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" id="password-signup" type="password" placeholder="Password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+        <button class="button" id="submit" style="background-color: #50c557; left: 250px;">Submit</button>
+      </p>
+    </div>
+    </div>
+  </div>
+</div>
 
+    <!-- Cuisine Dropdown -->
+    <div class="select">
+    <select id='select-cuisine'>
+    <option value='' disabled selected>Select Cuisine</option>
+    <option id='choice' value='african'>African</option>
+    <option id='choice' value='american'>American</option>
+    <option id='choice' value='british'>British</option>
+    <option id='choice' value="cajun">Cajun</option>
+    <option id='choice' value="caribbean">Caribbean</option>
+    <option id='choice' value="chinese">Chinese</option>
+    <option id='choice' value="eastern-european">Eastern European</option>
+    <option id='choice' value="european">European</option>
+    <option id='choice' value="french">French</option>
+    </select>
+    </div>
+    <button class="button is-light" id='select-button'>Select</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <script src="./assets/js/cuisinedropdown.js"></script>
     <script src="./assets/js/dropdown.js"></script>
     <script src="./assets/js/loginmodal.js"></script>
     <script src="https://kit.fontawesome.com/22274271af.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/login.js"></script>
+    <script src="./assets/js/logout.js"></script>
+    <script src="./assets/js/signup.js"></script>
+    <script src="./assets/js/index.js"></script>
   </body>
 </html>
