@@ -55,6 +55,7 @@ router.post('/email', withAuth, async (req, res) => {
         // Send recipe link to logged in users email 
         sendRecipe(req.session.email, req.body.sourceUrl);
 // TODO figure out what goes in the await and how to return errors properly.
+        console.log ("email: ", req.session.email, " source URL ", req.body.sourceUrl);
         
         res.status(200).body("Recipe " + req.body.sourceUrl, " sent to " + req.session.email);
       } catch (err) {
