@@ -13,12 +13,12 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-      req.session.user_id = newUser.id;
+      req.session.userId = newUser.id;
   
       // TODO: SET EMAIL email IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
       req.session.email = newUser.email;
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.status(200).json(newUser);
     });
@@ -54,11 +54,11 @@ router.post('/login', async (req, res) => {
     // knows that user is logged in 
     req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-      req.session.user_id = user.id;
+      req.session.userId = user.id;
       // TODO: SET EMAIL email IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
       req.session.email = user.email;
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.json({ user, message: 'You are now logged in!' });
     });
@@ -70,7 +70,7 @@ router.post('/login', async (req, res) => {
 //URL api/user/logout
 router.post('/logout', (req, res) => {
   console.log(req.session);
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
     });
