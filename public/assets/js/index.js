@@ -118,7 +118,7 @@ async function getRecipeData() {
     // console.log(cuisineValue);
     var cuisine = cuisineDropDown.value;
     // console.log(cuisine);
-    const response = await fetch(`/api/recipes/${cuisine}`);
+    const response = await fetch(`/api/recipe/${cuisine}`);
     const selectedRecipes = response.json();
     console.log(selectedRecipes);
     
