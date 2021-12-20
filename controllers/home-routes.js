@@ -1,13 +1,14 @@
 const router = require('express').Router();
 const { Recipe } = require('../models/');
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
 
 // given a cuisine, return all recipes with that cuisine
 // parameter needed is cuisine
 
 // get all recipes for cuisine search
+// can get cuisine without logging in
 // Endpoint: /
-router.get('/cuisine', withAuth, async (req, res) => {
+router.get('/cuisine', async (req, res) => {
   try {
     const recipeData = await Recipe.findAll({
       where: {
