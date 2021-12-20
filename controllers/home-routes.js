@@ -40,9 +40,4 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/logout', (req, res) {
-  req.logout();
-  req.session.destroy();
-  res.redirect('/')
-})
 module.exports = router;
