@@ -3,11 +3,8 @@ const { Recipe } = require('../models');
 const path = require('path');
 // const withAuth = require('../utils/auth');
 
-// given a cuisine, return all recipes with that cuisine
-// parameter needed is cuisine
 
-// get all recipes for cuisine search
-// can get cuisine without logging in
+// get homepage
 // Endpoint: /
 
 router.get('/', (req, res) => {
@@ -15,6 +12,7 @@ router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
+<<<<<<< HEAD
 
 router.get('/cuisine', async (req, res) => {
   try {
@@ -44,4 +42,6 @@ router.get('/cuisine', async (req, res) => {
 //     return;
 //   }
 // });
+=======
+>>>>>>> 8afc46cb048ca1f14e40e807101d2162d2fd6db6
 module.exports = router;

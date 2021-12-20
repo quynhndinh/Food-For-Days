@@ -1,12 +1,11 @@
 const router = require('express').Router();
-const { UserRecipe, Recipe, User } = require('../../models');
+const { UserRecipe, Recipe } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // getting
 
 // get all recipes for the USERS cookbook
 // Endpoint: /api/cookbook
-// include: [User], or where: req.session.user_id
 router.get('/', withAuth, async (req, res) => {
   console.log("**********","GET /cookbook", req.session.user_id)
   try {
