@@ -9,10 +9,6 @@ loginButton.addEventListener('click', () => {
   loginModal.classList.add('is-active');
 });
 
-modalBG.addEventListener('click', () => {
-  modal.classList.remove('is-active');
-});
-
 signupButton.addEventListener('click', () => {
   signUpModel.classList.add('is-active');
 });
@@ -20,3 +16,11 @@ signupButton.addEventListener('click', () => {
 // modalBG.addEventListener('click', () => {
 //   modal.classList.remove('is-active');
 // });
+
+// modalBG.addEventListener('click', () => {
+//   modal.classList.remove('is-active');
+// });
+
+$('.modal-background').on('click', ()=>{
+  $('.modal').removeClass('is-active')
+})

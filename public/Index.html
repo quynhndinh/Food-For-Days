@@ -5,13 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="reset" href="/public/assets/css/reset.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="style" href="/public/assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+    <link rel="style" href="/public/assets/css/style.css" />
+
     <title>Food For Days</title>
   </head>
 
@@ -24,13 +21,7 @@
           <h1 class="title" style="color: #50c557;">Food For Days</h1>
         </a>
 
-        <a
-          role="button"
-          class="navbar-burger"
-          aria-label="menu"
-          aria-expanded="false"
-          data-target="dropdown"
-        >
+        <a role="button" class="navbar-burger" id="burgermenu" aria-label="menu" aria-expanded="false" data-target="dropdown">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -85,7 +76,7 @@
         <span class="icon is-small is-left">
           <i class="fas fa-lock"></i>
         </span>
-        <button class="button" id="submitx" style="background-color: #50c557; left: 250px; up: 20px">Sign Up</button>
+        <button class="button" id="submitx" style="background-color: #50c557; left: 250px;">Sign Up</button>
       </p>
     </div>
     </div>
@@ -114,57 +105,29 @@
         <span class="icon is-small is-left">
           <i class="fas fa-lock"></i>
         </span>
-        <button class="button" id="submit" style="background-color: #50c557; left: 250px; up: 20px">Submit</button>
+        <button class="button" id="submit" style="background-color: #50c557; left: 250px;">Submit</button>
       </p>
     </div>
     </div>
   </div>
 </div>
 
-    <!-- Dropdown -->
-    <div id="searchbox" style="display: table-caption; position: relative;"> 
-      <div class="dropdown">
-        <div class="dropdown-trigger">
-          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-            <span>Select A Cuisine</span>
-            <span class="icon is-small">
-              <i class="fas fa-angle-down" aria-hidden="true"></i>
-            </span>
-          </button>
-        </div>
-        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-          <div class="dropdown-content">
-            <a value="african" class="dropdown-item">
-              African
-            </a>
-            <a value="american" class="dropdown-item">
-              American
-            </a>
-            <a value="british" class="dropdown-item is-active">
-              British
-            </a>
-            <a value="cajun" class="dropdown-item">
-              Cajun
-            </a>
-            <a value="caribbean" class="dropdown-item">
-              Caribbean
-            </a>
-            <a value="chinese" class="dropdown-item">
-              Chinese
-            </a>
-            <a value="eastern-european" class="dropdown-item">
-              Eastern European
-            </a>
-            <a value="european" class="dropdown-item">
-              European
-            </a>
-            <a value="french" class="dropdown-item">
-              French
-            </a>
-          </div>
-        </div>
-      </div>
+    <!-- Cuisine Dropdown -->
+    <div class="select">
+    <select id='select-cuisine'>
+    <option value='' disabled selected>Select Cuisine</option>
+    <option id='choice' value='african'>African</option>
+    <option id='choice' value='american'>American</option>
+    <option id='choice' value='british'>British</option>
+    <option id='choice' value="cajun">Cajun</option>
+    <option id='choice' value="caribbean">Caribbean</option>
+    <option id='choice' value="chinese">Chinese</option>
+    <option id='choice' value="eastern-european">Eastern European</option>
+    <option id='choice' value="european">European</option>
+    <option id='choice' value="french">French</option>
+    </select>
     </div>
+    <button class="button is-light" id='select-button'>Select</button>
 
     <!-- Website Description -->
       <div class="container is-primary" id="description">
@@ -177,7 +140,7 @@
 
       
     
-
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="./assets/js/cuisinedropdown.js"></script>
     <script src="./assets/js/dropdown.js"></script>
     <script src="./assets/js/loginmodal.js"></script>
