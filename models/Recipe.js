@@ -9,7 +9,7 @@ Recipe.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     cuisine: {
       type: DataTypes.STRING,
