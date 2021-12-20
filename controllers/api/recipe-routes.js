@@ -9,7 +9,7 @@ var chalk = require('chalk');
 var transporter = nodemailer.createTransport({
 	service: 'gmail',
 	auth: {
-		user: 'bootcamp202112@gmail.com',
+		user: 'foodfordays.email@gmail.com',
 		pass: 'BootCamp1sFun'
 	}
 });
@@ -18,7 +18,7 @@ var transporter = nodemailer.createTransport({
 function sendRecipe(email, sourceUrl) {
 	// Set up default
 	var mailOptions = {
-		from: 'bootcamp202112@gmail.com',
+		from: 'foodfordays.email@gmail.com',
 		to: 'lindalw03@gmail.com',
 		subject: 'Recipe from Food-For-Days',
 		text: 'Here is your recipe link: '
@@ -42,60 +42,56 @@ function sendRecipe(email, sourceUrl) {
 
 // user will input email to then send 'sourceUrl' to that email
 
-// Endpoint: /api/recipe/email
+// Endpoint: /api/recipe/email 
 // Params: sourceUrl url of recipe you want to send
 
 router.post('/email', withAuth, async (req, res) => {
-	console.log('in router.post');
-	try {
-		// TODO: Retrieve recipe link from body
-		// ?? Not sure if we need to do this within the try and what would be
-		// in the await
-		// Send recipe link to logged in users email
-		// sendRecipe(req.session.email, req.body.sourceUrl);
-		// TODO figure out what goes in the await and how to return errors properly.
-		var mailOptions = {
-			from: 'bootcamp202112@gmail.com',
-			to: 'lindalw03@gmail.com',
-			subject: 'Recipe from Food-For-Days',
-			text: 'Here is your recipe link: '
-		};
+      console.log("in router.post");
+      try {
+		
+        // TODO: Retrieve recipe link from body
+        // ?? Not sure if we need to do this within the try and what would be 
+        // in the await
+        // Send recipe link to logged in users email 
+        sendRecipe(req.session.email, req.body.sourceUrl);
+// TODO figure out what goes in the await and how to return errors properly.
+        
+        res.status(200).body("Recipe " + req.body.sourceUrl, " sent to " + req.session.email);
+      } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
+      }
+    });
+    
+// Endpoint: /api/recipe/cuisine
+router.get('/cuisine', async (req, res) => {
+    try {
+      const recipeData = await Recipe.findAll({
+        where: {
+          cuisine: req.body.cuisine
+        }
+      });
+      res.status(200).json(recipeData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
-		console.log(chalk.blue('in Send Recipe email, sourceUrl ' + email + sourceUrl));
-
-		mailOptions.to = email;
-		mailOptions.text = mailOptions.text + sourceUrl;
-
-		console.log(chalk.blue('sendRecipe mailOptions: ', { mailOptions }));
-
-		await transporter.sendMail(mailOptions, function(error, info) {
-			if (error) {
-				console.log(chalk.blue(error));
-			} else {
-				console.log(chalk.blue('Email sent: ' + info.response));
-			}
-		});
-		res.status(200).body('Recipe ' + req.body.sourceUrl, ' sent to ' + req.session.email);
-	} catch (err) {
-		console.error(err);
-		res.status(500).json(err);
-	}
-});
-
-//userId , recipeId
+//recipeId
 //this is adding a recipe to a user which we do through UserRecipe
-//endpoint is /recipe
+//endpoint: /api/recipe
 router.post('/', withAuth, async (req, res) => {
-	console.log('****************************');
-	try {
-		const newUserRecipe = await UserRecipe.create({
-			userId: req.session.userId,
-			recipeId: req.body.recipeId
-		});
-		res.status(200).json(newUserRecipe);
-	} catch (err) {
-		res.status(400).json(err);
-	}
+	console.log("****************************")
+  try {
+    const newUserRecipe = await UserRecipe.create({
+	userId: req.session.userId,
+	recipeId: req.body.recipeId
+  })
+  res.status(200).json(newUserRecipe);
+} catch (err) {
+  res.status(400).json(err);
+}
 });
 
 module.exports = router;
+
