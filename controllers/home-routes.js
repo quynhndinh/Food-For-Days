@@ -7,7 +7,7 @@ const withAuth = require('../utils/auth');
 
 // get all recipes for cuisine search
 // Endpoint: /
-router.get('/', withAuth, async (req, res) => {
+router.get('/cuisine', withAuth, async (req, res) => {
   try {
     const recipeData = await Recipe.findAll({
       where: {
@@ -19,6 +19,27 @@ router.get('/', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get('/cuisine', withAuth, async (req, res) => {
+//   try {
+//     const cuisineData = await Post.findAll({
+//       where: {
+//           cuisine: req.body.cuisine
+//       },
+//     });
+
+//     const cuisine = cuisineData.map((cuisine) => cuisine.get({ plain: true }));
+
+//     res.render('all-cuisine', {
+//       layout: 'dashboard',
+//       cuisine,
+//     });
+//   } catch (err) {
+//     res.redirect('login');
+//   }
+// });
+
+
 
 // Endpoint: /login
 router.get('/login', (req, res) => {
