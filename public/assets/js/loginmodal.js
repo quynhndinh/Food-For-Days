@@ -2,10 +2,11 @@
 const loginButton = document.querySelector('#login');
 const signupButton = document.querySelector('#signup');
 const modalBG = document.querySelector('.modal-background');
-const modal = document.querySelector('.modal');
+const loginModal = document.querySelector('#login-modal');
+const signUpModel = document.querySelector('#signup-modal')
 
 loginButton.addEventListener('click', () => {
-  modal.classList.add('is-active');
+  loginModal.classList.add('is-active');
 });
 
 modalBG.addEventListener('click', () => {
@@ -13,9 +14,9 @@ modalBG.addEventListener('click', () => {
 });
 
 signupButton.addEventListener('click', () => {
-  modal.classList.add('is-active');
+  signUpModel.classList.add('is-active');
 });
 
-modalBG.addEventListener('click', () => {
-  modal.classList.remove('is-active');
-});
+// modalBG.addEventListener('click', () => {
+//   modal.classList.remove('is-active');
+// });
