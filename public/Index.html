@@ -11,6 +11,7 @@
     />
     <link rel="style" href="/public/assets/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/22274271af.js" crossorigin="anonymous"></script>
     
     <title>Food For Days</title>
   </head>
@@ -60,10 +61,10 @@
     </nav>
 
     <!-- search bar container -->
-    <div class="select-cuisine">
-      <label for="pickCuisine"> Select </label>
-      <select name="pick" id="cuisine">
-        <option aria-placeholder="">Click To Select Cuisine</option>
+    <!-- <div class="select-cuisine"> -->
+      <label for="pickCuisine"> Select Cuisine </label>
+      <select name="pickCuisine" id="cuisine">
+        <!-- <option aria-placeholder="">Click To Select Cuisine</option> -->
         <option value="african">African</option>
         <option value="american">American</option>
         <option value="british">British</option>
@@ -73,24 +74,10 @@
         <option value="eastern european">Eastern European</option>
         <option value="european">European</option>
         <option value="french">French</option>
-        <option value="greek">Greek</option>
-        <option value="indian">Indian</option>
-        <option value="irish">Irish</option>
-        <option value="italina">Italian</option>
-        <option value="japanese">Japanese</option>
-        <option value="jewish">Jewish</option>
-        <option value="korean">Korean</option>
-        <option value="latin american">Latin American</option>
-        <option value="mediterranean">Mediterranean</option>
-        <option value="mexican">Mexican</option>
-        <option value="middle eastern">Middle Eastern</option>
-        <option value="nordic">Nordic</option>
-        <option value="southern">Southern</option>
-        <option value="spanish">Spanish</option>
-        <option value="thai">Thai</option>
-        <option value="vietnamese">Vietnamese</option>
       </select>
-    </div>
+      <!-- <button type="button" id="search">Search</button> -->
+    <!-- </div> -->
+    
 
     <!-- login modal -->
     <div class="modal">
@@ -149,8 +136,25 @@
       </div>
     </div>
 
+    <!-- search results w generated cards -->
+    <section class="recipe-section" id="recipeSection">
+     
+     
+      <!-- <div class="card">
+          <div class="image-container">
+              <div class="info-container"></div>
+                  <img class="image" src="">
+                  <h5 class="title"></h5>
+                  <p class="serving"></p>
+                  <button class="btn">Save Meal</button>
+              </div>
+          </div>   
+      </div>  
+     </section> -->
+
     <script src="./assets/js/dropdown.js"></script>
     <script src="./assets/js/loginmodal.js"></script>
-    <script src="https://kit.fontawesome.com/22274271af.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/index.js"></script>
+    
   </body>
 </html>

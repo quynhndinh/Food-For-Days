@@ -5,11 +5,11 @@ const withAuth = require('../../utils/auth');
 // given a cuisine, return all recipes with that cuisine
 // parameter needed is cuisine
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/:cuisine', withAuth, async (req, res) => {
   try {
     const recipesData = await Recipes.findAll({
       where: {
-        cuisine: res.params.cuisine
+        cuisine: req.params.cuisine
       }
     });
     res.status(200).json(recipesData);
