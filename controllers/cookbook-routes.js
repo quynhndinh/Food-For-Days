@@ -12,9 +12,9 @@ router.get('/', withAuth, async (req, res) => {
   try {
     console.log("**********", req.session.user_id)
     const recipeData = await UserRecipe.findAll({
-      where: {
-        user_id = req.session.user_id,
-      }
+      // where: {
+      //   user_id = req.session.user_id,
+      // }
     });
     console.log(recipeData);
     res.status(200).json(recipeData);
