@@ -1,7 +1,7 @@
 const loginFormHandler = async function(event) {
   event.preventDefault();
 
-// change usernames to email and make sure IDs match
+// change usernames to email and make sure userId match **Camelcase
 
   const emailEL = document.querySelector('#email-login');
   const passwordEl = document.querySelector('#password-login');

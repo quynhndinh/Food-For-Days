@@ -1,35 +1,26 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// called when a user signs up for website
-// email and password
+// posting
 
-// URL: /api/user
+// creating a new user account - sign up
+// Endpoint: /api/user
+// params: email and password
 router.post('/', async (req, res) => {
   try {
-    const newUser = await User.create({
-      // TODO: SET EMAIL TO EMAIL SENT IN REQUEST
-      // ??
-
-      // TODO: SET PASSWORD TO PASSWORD SENT IN REQUEST
-      // password: req.session.password
-      // ???
-    });
+    console.log(req.body)
+    const newUser = await User.create(req.body);
 
     req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
       req.session.user_id = newUser.id;
-      // TODO: SET EMAIL email IN REQUEST SESSION TO EMAIL RETURNED FROM DATABASE
-      req.session.email = newUser.id;
-
+  
+      // TODO: SET EMAIL email IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
+      req.session.email = newUser.email;
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
       req.session.logged_in = true;
-      
 
-      // only saving userID, email
-      // not saving password?
-
-      res.json(newUser);
+      res.status(200).json(newUser);
     });
   } catch (err) {
     res.status(500).json(err);
@@ -37,9 +28,11 @@ router.post('/', async (req, res) => {
 });
 
 
-// URL: /api/user/login
+// Endpoint: /api/user/login
+// params: email and password
 router.post('/login', async (req, res) => {
   try {
+    console.log(req.body)
     const user = await User.findOne({
       where: {
         email: req.body.email,
@@ -58,12 +51,14 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    // knows that user is logged in 
     req.session.save(() => {
       // TODO: SET USERID userId IN REQUEST SESSION TO ID RETURNED FROM DATABASE
-
-      // TODO: SET USERNAME username IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
-
+      req.session.user_id = user.id;
+      // TODO: SET EMAIL email IN REQUEST SESSION TO USERNAME RETURNED FROM DATABASE
+      req.session.email = user.email;
       // TODO: SET LOGGEDIN loggedIn TO TRUE IN REQUEST SESSION
+      req.session.logged_in = true;
 
       res.json({ user, message: 'You are now logged in!' });
     });
@@ -72,13 +67,15 @@ router.post('/login', async (req, res) => {
   }
 });
 
+//URL api/user/logout
 router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
+  console.log(req.session);
+  if (req.session.logged_in) {
     req.session.destroy(() => {
       res.status(204).end();
     });
   } else {
-    res.status(404).end();
+    res.status(500).end();
   }
 });
 

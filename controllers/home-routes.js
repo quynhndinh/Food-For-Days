@@ -1,44 +1,26 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../models/');
+const { Recipe } = require('../models/');
+const withAuth = require('../utils/auth');
 
-// get all posts for homepage
-router.get('/', async (req, res) => {
+// given a cuisine, return all recipes with that cuisine
+// parameter needed is cuisine
+
+// get all recipes for cuisine search
+// Endpoint: /
+router.get('/', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      include: [User],
+    const recipeData = await Recipe.findAll({
+      where: {
+        cuisine: req.body.cuisine
+      }
     });
-
-    const posts = postData.map((post) => post.get({ plain: true }));
-
-    res.render('all-posts', { posts });
+    res.status(200).json(recipeData);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// get single post
-router.get('/post/:id', async (req, res) => {
-  try {
-    const postData = await Post.findByPk(
-      // HINTS:
-      //  FIRST ARGUMENT IS PRIMARY KEY 'I'D PASSED IN THE END POINT
-      //  SECOND ARGUMENT IS AN OBJECT IN WHICH YOU USE PROPERTY 'INCLUDE' TO INCLUDE USER
-      //  AND COMMENT
-      // TODO: YOUR CODE HERE
-    );
-
-    if (postData) {
-      const post = postData.get({ plain: true });
-
-      res.render('single-post', { post });
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
+// Endpoint: /login
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -48,6 +30,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// Endpoint: /signup
 router.get('/signup', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
