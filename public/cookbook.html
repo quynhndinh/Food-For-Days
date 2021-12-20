@@ -17,7 +17,7 @@
 
   <body>
     <!-- navigation bar start -->
-    <nav class="navbar" id='navmenu'role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <img src="./assets/image/food logo.jpg" alt="Food For Days" style="max-width: 6rem">
         <a class="navbar-item" href="Index.html">
@@ -40,9 +40,9 @@
       <div id="dropdown" class="navbar-menu">
         <div class="navbar-start">
 
-          <a class="navbar-item" href="Index.html"> Search For Recipes </a>
+          <a class="navbar-item"> Search For Recipes </a>
 
-          <a class="navbar-item" href="cookbook.html"> Cookbook </a>
+          <a class="navbar-item"> Cookbook </a>
 
           <a class="navbar-item"> Contact </a>
         </div>
@@ -54,16 +54,14 @@
                 <strong>Sign up</strong>
               </a>
               <a class="button is-light" id="login"> Log in </a>
-
-              <a class="button is-light" id="logout"> Logout </a>
-
             </div>
           </div>
         </div>
       </div>
     </nav>
 
-
+    <!-- login modal -->
+    <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-content has-background-white py-5 px-5">
         <div class="field">
@@ -83,14 +81,15 @@
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
-
+            <button class="button" style="background-color: #50c557; left: 250px; up: 20px">Summit</button>
           </p>
         </div>
         </div>
       </div>
     </div>
 
-
+    <!-- signup modal -->
+    <div class="modal">
       <div class="modal-background"></div>
       <div class="modal-content has-background-white py-5 px-5">
         <div class="field">
@@ -111,14 +110,14 @@
             <span class="icon is-small is-left">
               <i class="fas fa-lock"></i>
             </span>
-
+            <button class="button" style="background-color: #50c557; left: 250px; up: 20px">signup</button>
           </p>
         </div>
         </div>
       </div>
     </div>
 
-    <!-- Dropdown -->
+    <!-- search bar dropdown -->
     <div id="searchbox" style="display: table-caption; position: relative;"> 
       <div class="dropdown">
         <div class="dropdown-trigger">
@@ -134,54 +133,44 @@
             <a value="african" class="dropdown-item">
               African
             </a>
-            <a value="american" class="dropdown-item">
+            <a href="american" class="dropdown-item">
               American
             </a>
-            <a value="british" class="dropdown-item is-active">
+            <a href="british" class="dropdown-item is-active">
               British
             </a>
-            <a value="cajun" class="dropdown-item">
+            <a href="cajun" class="dropdown-item">
               Cajun
             </a>
-            <a value="caribbean" class="dropdown-item">
+            <a href="caribbean" class="dropdown-item">
               Caribbean
             </a>
-            <a value="chinese" class="dropdown-item">
+            <a href="chinese" class="dropdown-item">
               Chinese
             </a>
-            <a value="eastern-european" class="dropdown-item">
+            <a href="eastern-european" class="dropdown-item">
               Eastern European
             </a>
-            <a value="european" class="dropdown-item">
+            <a href="european" class="dropdown-item">
               European
             </a>
-            <a value="french" class="dropdown-item">
+            <a href="french" class="dropdown-item">
               French
             </a>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Website Description -->
-      <div class="container is-primary" id="description">
-        <img src='./assets/image/cuisines-of-the-world.jpg' >
-        <h2 class="subtitle is-primary">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ducimus tempora laudantium quia incidunt, architecto, soluta itaque porro nulla inventore quos tempore blanditiis. Architecto consequatur possimus perspiciatis vero, qui id.
-        </h2>
-      </div>
-
-
-      
     
 
-    <script src="./assets/js/cuisinedropdown.js"></script>
+    <!-- recipe cards section -->
+    <section class="recipe-cards" id="recipe-cards">
+      <!-- insert cards div -->
+    </section>
+
+
     <script src="./assets/js/dropdown.js"></script>
     <script src="./assets/js/loginmodal.js"></script>
     <script src="https://kit.fontawesome.com/22274271af.js" crossorigin="anonymous"></script>
-    <script src="./assets/js/login.js"></script>
-    <script src="./assets/js/logout.js"></script>
-    <script src="./assets/js/signup.js"></script>
-    <script src="./assets/js/index.js"></script>
   </body>
 </html>
