@@ -20,7 +20,7 @@
     <!-- navigation bar start -->
     <nav class="navbar" id='navmenu'role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <img src="./assets/image/food logo.jpg" alt="Food For Days" style="max-width: 6rem">
+        <img src="./assets/image/food-logo.jpg" alt="Food For Days" style="max-width: 6rem">
         <a class="navbar-item" href="home.html">
           <h1 class="title" style="color: #8dc73f;">Food For Days</h1>
         </a>
@@ -133,6 +133,26 @@
     </div>
   </div>
 </div>
+<!-------- Alert modal -->
+<div class="modal" id="alert-container">
+  <div class="modal-background"></div>
+  <div class="modal-content has-background-white py-5 px-5">
+    <article class="media">
+      <figure class="media-left">
+        <p class="image" style="max-width: 100px;">
+          <img src="./assets/image/food-logo.jpg">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content" >
+          <p id='message' style="font-size: 30px; margin-top: 25px;">
+            This is an alert!
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
 
     <!-- search results w generated cards -->
     <section class="recipe-section" id="recipeSection">
@@ -163,5 +183,7 @@
     <script src="./assets/js/logout.js"></script>
     <script src="./assets/js/signup.js"></script>
     <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/utils.js"></script>
+
   </body>
 </html>
