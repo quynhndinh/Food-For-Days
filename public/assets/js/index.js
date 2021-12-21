@@ -146,7 +146,9 @@ async function getRecipeData() {
         // const imageContainer = document.createElement('div');
         // const infoContainer = document.createElement('div');
         const recipeDiv = document.createElement('div');
+        const infoContainer = document.createElement('div')
         const buttonContainer = document.createElement('div');
+        
         const recipeTitleEl = document.createElement('h2');
         const readyEl = document.createElement('p');
         const calories = document.createElement('p');
@@ -166,10 +168,15 @@ async function getRecipeData() {
         // email recipe
         const btnElement2 = document.createElement('button');
         btnElement2.innerHTML = "Email Recipe"
-        btnElement.addEventListener('click', () => emailRecipe(recipe.sourceUrl));
+        btnElement2.addEventListener('click', () => emailRecipe(recipe.sourceUrl));
+        
+        
         // recipe instructions
-        const btnElement3 = document.createElement('button');
+        const btnElement3 = document.createElement('a');
         btnElement3.innerHTML = "Instructions"
+        btnElement3.setAttribute('target', '_blank')
+        btnElement3.setAttribute('href', recipe.sourceUrl);
+
         // btnElement3.addEventListener("click", sendRecipe);
         // btnElement3 = setAttribute('href', recipe.sourceUrl)
         // btnElement.innerText = 'Save Recipe'
@@ -183,18 +190,26 @@ async function getRecipeData() {
         
         recipeDiv.append(recipeTitleEl)
         recipeDiv.append(recipeImgEl)
-        recipeDiv.append(servingElement)
-        recipeDiv.append(readyEl)
-        recipeDiv.append(calories)
+        recipeDiv.append(infoContainer)
+        // recipeDiv.append(servingElement)
+        // recipeDiv.append(readyEl)
+        // recipeDiv.append(calories)
         // recipeDiv.append(btnElement)
         // recipeDiv.append(btnElement2)
         // recipeDiv.append(btnElement3)
+        
         buttonContainer.append(btnElement, btnElement2, btnElement3)
         recipeDiv.appendChild(buttonContainer)
+        infoContainer.append(calories, readyEl, servingElement)
+        
+        servingElement.classList.add('info')
+        calories.classList.add('info')
+        readyEl.classList.add('info')
 
+        infoContainer.classList.add('cardInfo')
         btnElement.classList.add('cardButton')
         btnElement2.classList.add('cardButton')
-        btnElement3.classList.add('cardButton')
+        btnElement3.classList.add('aa')
         buttonContainer.classList.add("buttonGroup")
         recipeDiv.classList.add("single-recipe");
         recipeImgEl.classList.add("imgsize");
