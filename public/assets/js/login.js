@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-const session = require("express-session");
-=======
-let test
->>>>>>> f226b49b068f47020fb67b1cc94a1e4813a46fdc
-
 const loginFormHandler = async function(event) {
   event.preventDefault();
   console.log("loginFormHandler");
