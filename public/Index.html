@@ -22,7 +22,7 @@
       <div class="navbar-brand">
         <img src="./assets/image/food logo.jpg" alt="Food For Days" style="max-width: 6rem">
         <a class="navbar-item" href="Index.html">
-          <h1 class="title" style="color: #50c557;">Food For Days</h1>
+          <h1 class="title" style="color: #8dc73f;">Food For Days</h1>
         </a>
 
         <a role="button" class="navbar-burger" id="burgermenu" aria-label="menu" aria-expanded="false" data-target="dropdown">
@@ -39,13 +39,12 @@
 
           <a class="navbar-item" href="cookbook.html"> Cookbook </a>
 
-          <a class="navbar-item"> Contact </a>
         </div>
 
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <a class="button" id="signup" style="background-color: #50c557; color: white;">
+              <a class="button" id="signup" style="background-color: #8dc73f; color: white;">
                 <strong>Sign up</strong>
               </a>
               <a class="button is-light" id="login"> Log in </a>
@@ -60,9 +59,10 @@
 
     <!-- search bar container -->
     <!-- <div class="select-cuisine"> -->
-      <label for="pickCuisine"> Select Cuisine </label>
+      <label for="pickCuisine" style='margin-left: 20px;'> Select Cuisine </label>
       <select name="pickCuisine" id="cuisine">
         <!-- <option aria-placeholder="">Click To Select Cuisine</option> -->
+        <option value="" disabled selected>Select a Cuisine</option>
         <option value="african">African</option>
         <option value="american">American</option>
         <option value="british">British</option>
@@ -77,33 +77,32 @@
     <!-- </div> -->
     
 <!-- signup modal -->
-<div class="modal" id="signup-modal">
-  <div class="modal-background"></div>
-  <div class="modal-content has-background-white py-5 px-5">
-    <div class="field">
-
-      <p class="control has-icons-left has-icons-right">
-        <input class="input" id="email-signup" type="email" placeholder="Email">
-        <span class="icon is-small is-left">
-          <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-small is-right">
-          <i class="fas fa-check"></i>
-        </span>
-      </p>
-    </div>
-    <div class="field">
-      <p class="control has-icons-left">
-        <input class="input" id="password-signup" type="password" placeholder="Password">
-        <span class="icon is-small is-left">
-          <i class="fas fa-lock"></i>
-        </span>
-        <button class="button" id="submitx" style="background-color: #50c557; left: 250px;">Sign Up</button>
-      </p>
-    </div>
-    </div>
+  <div class="modal" id="signup-modal">
+    <div class="modal-background"></div>
+      <div class="modal-content has-background-white py-5 px-5">
+      <div class="field">
+        <p class="control has-icons-left has-icons-right">
+          <input class="input" id="email-signup" type="email" placeholder="Email">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+        </p>
+       </div>
+      <div class="field">
+        <p class="control has-icons-left">
+          <input class="input" id="password-signup" type="password" placeholder="Password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+          <button class="button" id="submitx" style="background-color: #8dc73f; left: 250px;">Sign Up</button>
+        </p>
+        </div>
+      </div>
   </div>
-</div>
+  
 
 <!-- login modal -->
 <div class="modal" id="login-modal">
@@ -135,16 +134,24 @@
 </div>
     <!-- search results w generated cards -->
     <section class="recipe-section" id="recipeSection">
-     
     <!-- Website Description -->
-      <div class="container is-primary is-large" id="description" style="margin-left: 250px; text-align: center; margin-top: 50px;">
+      <div class="container has-text-centered" id="description" style="margin-top: 50px; margin-left: 20px; margin-right: 20px;">
         <h2 class="subtitle is-primary">
           Food For Days lets you explore different cuisines so you're not bored making the same recipes over and over again. Create a user profile,
           search by cuisine and save recipes to your own private cookbook. Come back anytime whenever you're stuck on what to cook!
         </h2>
-        <img src='./assets/image/cuisines-of-the-world.jpg' >
+        <img src='./assets/image/cuisines-of-the-world.jpg' style="margin-top: 25px; border-radius: 20px;">
       </div>
-
+      </section>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Authors</strong> by <a href="https://github.com/llwaterhouse">Linda Waterhouse</a>, <a href="https://github.com/NicoleWrz">Nicole Wrzosek</a>, <a href="https://github.com/quynhndinh">Quynh Dinh</a>, <a href="https://github.com/bjtsmith23">Brian Smith</a> The source code is licensed
+            <a href="https://bootcamp.rutgers.edu/coding/">Rutgers</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </footer>
 
      
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
