@@ -55,6 +55,7 @@ router.post('/email', withAuth, async (req, res) => {
         // Send recipe link to logged in users email 
         sendRecipe(req.session.email, req.body.sourceUrl);
 // TODO figure out what goes in the await and how to return errors properly.
+        console.log ("email: ", req.session.email, " source URL ", req.body.sourceUrl);
         
         res.status(200).json({message: `Email sent to ${req.session.email}`});
       } catch (err) {
@@ -63,7 +64,7 @@ router.post('/email', withAuth, async (req, res) => {
       }
     });
     
-// Endpoint: /api/recipe/cuisine
+// Endpoint: /api/recipe/<cuisine>
 router.get('/:cuisine', async (req, res) => {
     try {
       const recipeData = await Recipe.findAll({
@@ -95,3 +96,4 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 module.exports = router;
+
