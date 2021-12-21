@@ -12,9 +12,9 @@ const logout = async function() {
   }
 
   if (!sessionStorage.getItem('loggedIn')) {
-    document.getElementById('#login').classList.remove('.hide');
-    document.getElementById('#signup').classList.remove('.hide');
-    document.getElementById('#logout').classList.add('.hide');
+    document.getElementById('#login').classList.remove('hide');
+    document.getElementById('#signup').classList.remove('hide');
+    document.getElementById('#logout').classList.add('hide');
   }
 };
 

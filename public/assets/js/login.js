@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const session = require("express-session");
+=======
+let test
+>>>>>>> f226b49b068f47020fb67b1cc94a1e4813a46fdc
 
 const loginFormHandler = async function(event) {
   event.preventDefault();
@@ -14,20 +18,22 @@ const loginFormHandler = async function(event) {
   });
 
   if (response.ok) {
-    sessionStorage.setItem('loggedIn', 'true');
-    document.location.replace('/');
+    sessionStorage.setItem('loggedIn', true);
     let loggedIn = sessionStorage.getItem("loggedIn");
-    console.log ("LoggedIn = ", loggedIn);
+    test = loggedIn;
+    document.location.replace('/');
   } else {
     alert('Failed to login');
   }
-  
+
   if (sessionStorage.getItem('loggedIn')) {
-    document.getElementById('#login').classList.add('.hide');
-    document.getElementById('#signup').classList.add('.hide');
-    document.getElementById('#logout').classList.remove('.hide');
+    document.getElementById('#login').classList.add('hide');
+    document.getElementById('#signup').classList.add('hide');
+    document.getElementById('#logout').classList.remove('hide');
   }
 };
+
+console.log ("logged in", test);
 
 document
   .querySelector('#submit')

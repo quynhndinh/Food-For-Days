@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const { Recipe } = require('../models');
 const path = require('path');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 
 // get homepage
@@ -9,7 +8,12 @@ const path = require('path');
 
 router.get('/', (req, res) => {
   console.log("GET /");
-  res.sendFile(path.join(__dirname, '../public/index.html'))
-})
+  res.sendFile(path.join(__dirname, '../public/home.html'))
+});
+
+router.get('/cookbook', withAuth, (req, res) => {
+  console.log("GET /cookbook");
+  res.sendFile(path.join(__dirname, '../public/cookbook.html'));
+});
 
 module.exports = router;

@@ -1,3 +1,6 @@
+:root {
+    --primary-color: #8dc73f;
+}
 
 #recipeSection {
     margin-top: 20px;
@@ -74,10 +77,6 @@ h2 {
     width: 120px;
     text-align: center;
     align-items: center;
-}
-
-:root {
-    --primary-color: #8dc73f;
 }
 
 .hide {
