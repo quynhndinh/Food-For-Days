@@ -1,25 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
+$("#burgermenu").on("click", () => {
+  $("#dropdown").toggle("is-active");
+});
 
-    // Get all "navbar-burger" elements
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-  
-    // Check if there are any navbar burgers
-    if ($navbarBurgers.length > 0) {
-  
-      // Add a click event on each of them
-      $navbarBurgers.forEach( el => {
-        el.addEventListener('click', () => {
-  
-          // Get the target from the "data-target" attribute
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-  
-          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-  
-        });
-      });
-    }
-  
+$(document).ready(function () {
+  $("#select-button").click(function () {
+    $("#description").empty();
   });
+});
+
+const submitBtn = document.getElementById("select-button");
+const dropdownEl = document.getElementById("selection-list");
+
+submitBtn.addEventListener("click", () => getCuisineData(dropdownEl.value));
+
+function getCuisineData(cuisine) {
+  return fetch("/api/recipe/cuisine", {
+    method: "POST",
+    body: JSON.stringify({ cuisine }),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var cuisine = JSON.stringify(data);
+      console.log(cuisine);
+      return cuisine; // <---create recipes card here
+    });
+}
+
+getCuisineData().then((value) => console.log(value));
