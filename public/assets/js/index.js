@@ -130,7 +130,11 @@ async function getRecipeData() {
         // const imageContainer = document.createElement('div');
         // const infoContainer = document.createElement('div');
         const recipeDiv = document.createElement('div');
+        const buttonContainer = document.createElement('div');
         const recipeTitleEl = document.createElement('h2');
+        const readyEl = document.createElement('p');
+        const calories = document.createElement('p');
+        const servingElement = document.createElement('p');
         const recipeImgEl = document.createElement('img');
 
         // save recipe
@@ -150,14 +154,22 @@ async function getRecipeData() {
         // btnElement.addEventListener('click', recipe.sourceUrl)
         recipeImgEl.setAttribute('src', recipe.image)
         recipeTitleEl.textContent = recipe.title
+        calories.textContent = "Calories: " + recipe.calories;
+        servingElement.textContent = "Servings: " + recipe.servings ;
+        readyEl.textContent = "Time to Cook: " + recipe.readyIn + "min";
         // cardEl.append(imageContainer, infoContainer)
         
         recipeDiv.append(recipeTitleEl)
         recipeDiv.append(recipeImgEl)
-        recipeDiv.append(btnElement)
-        recipeDiv.append(btnElement2)
-        recipeDiv.append(btnElement3)
+        recipeDiv.append(servingElement)
+        recipeDiv.append(readyEl)
+        recipeDiv.append(calories)
+        // recipeDiv.append(btnElement)
+        // recipeDiv.append(btnElement2)
+        // recipeDiv.append(btnElement3)
+        buttonContainer.append(btnElement, btnElement2, btnElement3)
 
+        buttonContainer.classList.add("buttonGroup")
         recipeDiv.classList.add("single-recipe");
         recipeImgEl.classList.add("imgsize");
         allRecipesDiv.append(recipeDiv)
