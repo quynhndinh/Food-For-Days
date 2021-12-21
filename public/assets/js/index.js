@@ -111,22 +111,41 @@ function handleCuisineSubmit(event) {
 var cuisineDropDown = document.getElementById('cuisine');
     cuisineDropDown.addEventListener('change', getRecipeData); 
 
-// assync
-function fetchSaveRecipe(recipeId) {
-    var cuisine = cuisineDropDown.value;
+// Save recipe to user's profile
+
+async function fetchSaveRecipe(recipeId) {
     console.log("In fetchSave Recipe, recipeID is ", recipeId);
-    // console.log(getRecipeData().selectedRecipes)
-    // var cuisine = cuisineDropDown.value;
-    // const response = await fetch(`/api/recipe/${cuisine}`);
-    // const selectedRecipes = await response.json();
-    // console.log(selectedRecipes);
-    // selectedRecipes.forEach((recipe) => {
-    //     console.log(recipe.Id)
-}
 
-function emailRecipe(sourceUrl) {
+    const response = await fetch(`/api/recipe/`,{
+        method: 'POST',
+        body: JSON.stringify({ recipeId}),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    
+    if (response.ok) {
+        alert('Successfully saved recipe');
+    } else {
+        alert("Failed to save recipe");
+     }
+  
+};
 
-    console.log("in eamil Recipe ", sourceUrl);
+// email recipe link to user via POST '/api/recipe/email/'
+async function emailRecipe(sourceUrl) {
+
+    console.log("in email Recipe ", sourceUrl);
+    const response = await fetch(`/api/recipe/email/`,{
+        method: 'POST',
+        body: JSON.stringify({ sourceUrl}),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    
+    if (response.ok) {
+        alert('Successfully emailed recipe');
+    } else {
+        alert("Failed to email recipe");
+     }
+  
 }
 
 async function getRecipeData() {
@@ -166,7 +185,7 @@ async function getRecipeData() {
         // email recipe
         const btnElement2 = document.createElement('button');
         btnElement2.innerHTML = "Email Recipe"
-        btnElement.addEventListener('click', () => emailRecipe(recipe.sourceUrl));
+        btnElement2.addEventListener('click', () => emailRecipe(recipe.sourceUrl));
         // recipe instructions
         const btnElement3 = document.createElement('button');
         btnElement3.innerHTML = "Instructions"
