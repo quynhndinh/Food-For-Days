@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="reset" href="/public/assets/css/reset.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="style" href="/public/assets/css/style.css" />
-
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://kit.fontawesome.com/22274271af.js" crossorigin="anonymous"></script>
     <title>Food For Days</title>
   </head>
 
@@ -54,6 +58,24 @@
       </div>
     </nav>
 
+    <!-- search bar container -->
+    <!-- <div class="select-cuisine"> -->
+      <label for="pickCuisine"> Select Cuisine </label>
+      <select name="pickCuisine" id="cuisine">
+        <!-- <option aria-placeholder="">Click To Select Cuisine</option> -->
+        <option value="african">African</option>
+        <option value="american">American</option>
+        <option value="british">British</option>
+        <option value="cajun">Cajun</option>
+        <option value="caribbean">Caribbean</option>
+        <option value="chinese">Chinese</option>
+        <option value="eastern-european">Eastern European</option>
+        <option value="european">European</option>
+        <option value="french">French</option>
+      </select>
+      <!-- <button type="button" id="search">Search</button> -->
+    <!-- </div> -->
+    
 <!-- signup modal -->
 <div class="modal" id="signup-modal">
   <div class="modal-background"></div>
@@ -111,24 +133,9 @@
     </div>
   </div>
 </div>
-
-    <!-- Cuisine Dropdown -->
-    <div class="select">
-    <select id='selection-list'>
-    <option value='' disabled selected>Select Cuisine</option>
-    <option id='choice' value='african'>African</option>
-    <option id='choice' value='american'>American</option>
-    <option id='choice' value='british'>British</option>
-    <option id='choice' value="cajun">Cajun</option>
-    <option id='choice' value="caribbean">Caribbean</option>
-    <option id='choice' value="chinese">Chinese</option>
-    <option id='choice' value="eastern-european">Eastern European</option>
-    <option id='choice' value="european">European</option>
-    <option id='choice' value="french">French</option>
-    </select>
-    </div>
-    <button class="button is-light" id='select-button'>Select</button>
-
+    <!-- search results w generated cards -->
+    <section class="recipe-section" id="recipeSection">
+     
     <!-- Website Description -->
       <div class="container is-primary is-large" id="description" style="margin-left: 250px; text-align: center; margin-top: 50px;">
         <h2 class="subtitle is-primary">
@@ -139,8 +146,7 @@
       </div>
 
 
-      
-    
+     
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="./assets/js/cuisinedropdown.js"></script>
     <script src="./assets/js/dropdown.js"></script>
