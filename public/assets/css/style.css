@@ -49,6 +49,7 @@ button {
 
 :root {
     --primary-color: #8dc73f;
+}
 
 .hide {
     display: none;

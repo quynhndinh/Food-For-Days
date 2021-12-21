@@ -1,3 +1,5 @@
+const session = require("express-session");
+
 const loginFormHandler = async function(event) {
   event.preventDefault();
   console.log("loginFormHandler");
@@ -12,12 +14,22 @@ const loginFormHandler = async function(event) {
   });
 
   if (response.ok) {
+    sessionStorage.setItem('loggedIn', 'true');
     document.location.replace('/');
   } else {
     alert('Failed to login');
+  }
+
+  if (response.ok) {
+    document.getElementById('#logout').classList.add('hide')
+  }
+
+  if (response.ok) {
+    document.getElementById('#signup').classList.add('hide')
   }
 };
 
 document
   .querySelector('#submit')
   .addEventListener('click', loginFormHandler);
+
