@@ -16,23 +16,21 @@ const loginFormHandler = async function(event) {
   if (response.ok) {
     sessionStorage.setItem('loggedIn', 'true');
     document.location.replace('/');
-    sessionStorage.setItem("loggedIn", "true");
     let loggedIn = sessionStorage.getItem("loggedIn");
     console.log ("LoggedIn = ", loggedIn);
   } else {
     alert('Failed to login');
   }
 
-  if (response.ok) {
-    document.getElementById('#logout').classList.add('hide')
-  }
-
-  if (response.ok) {
-    document.getElementById('#signup').classList.add('hide')
+  if (sessionStorage.getItem('loggedIn')) {
+    document.getElementById('#login').classList.add('.hide');
+    document.getElementById('#signup').classList.add('.hide');
+    document.getElementById('#logout').classList.remove('.hide');
   }
 };
 
 document
   .querySelector('#submit')
   .addEventListener('click', loginFormHandler);
+
 

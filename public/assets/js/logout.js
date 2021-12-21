@@ -10,6 +10,12 @@ const logout = async function() {
   } else {
     alert('Failed to log out');
   }
+
+  if (!sessionStorage.getItem('loggedIn')) {
+    document.getElementById('#login').classList.remove('.hide');
+    document.getElementById('#signup').classList.remove('.hide');
+    document.getElementById('#logout').classList.add('.hide');
+  }
 };
 
 document.querySelector('#logout').addEventListener('click', logout);
