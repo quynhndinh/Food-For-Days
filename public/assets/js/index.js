@@ -70,43 +70,8 @@ let bodyElement = document.body;
     //         infoContainer.append(titleElement, paragraphElement, btnElement, btnElementTwo);
     // }});
 
-function generateCard() {
-    let _wrapperAnchor = $("<a>");
-    let _card = $("<div>");
-    _card.attr("class", "movie-card");
-    let _posterContainer = $("<div>");
-    _posterContainer.attr("class", "poster-image");
-    let _figure = $("<figure>");
-    _figure.attr("class", "");
-    let _posterImage = $("<img>");
-    _posterContainer.append([_figure, _posterImage]);
-    let _cardContentContainer = $("<div>");
-    _cardContentContainer.attr("class", "card-content");
-    let _movieName = $("<div>");
-    _movieName.attr("class", "movie-name");
-    let _movieDate = $("<div>");
-    _movieDate.attr("class", "movie-date");
-    let _movieOverview = $("<div>");
-    _movieOverview.attr("class", "movie-overview");
-    _cardContentContainer.append([_movieName, _movieDate, _movieOverview]);
-    _card.append([_posterContainer, _cardContentContainer]);
-    _wrapperAnchor.append(_card);
-    let _cardObject = {
-        wrapperAnchor: _wrapperAnchor,
-        cardEl: _card,
-        posterContainerEl: _posterContainer,
-        figureEl: _figure,
-        posterImageEl: _posterImage,
-        movieNameEl: _movieName,
-        movieDateEl: _movieDate,
-        movieOverviewEl: _movieOverview
-    }
-    return _cardObject;
-}
 
-function handleCuisineSubmit(event) {
-   
-}
+
 
 var cuisineDropDown = document.getElementById('cuisine');
     cuisineDropDown.addEventListener('change', getRecipeData); 
