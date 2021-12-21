@@ -111,7 +111,23 @@ function handleCuisineSubmit(event) {
 var cuisineDropDown = document.getElementById('cuisine');
     cuisineDropDown.addEventListener('change', getRecipeData); 
 
+// assync
+function fetchSaveRecipe(recipeId) {
+    var cuisine = cuisineDropDown.value;
+    console.log("In fetchSave Recipe, recipeID is ", recipeId);
+    // console.log(getRecipeData().selectedRecipes)
+    // var cuisine = cuisineDropDown.value;
+    // const response = await fetch(`/api/recipe/${cuisine}`);
+    // const selectedRecipes = await response.json();
+    // console.log(selectedRecipes);
+    // selectedRecipes.forEach((recipe) => {
+    //     console.log(recipe.Id)
+}
 
+function emailRecipe(sourceUrl) {
+
+    console.log("in eamil Recipe ", sourceUrl);
+}
 
 async function getRecipeData() {
     // var chosenCuisine = cuisineDropDown.value;
@@ -140,13 +156,17 @@ async function getRecipeData() {
         // save recipe
         // when button is clicked --> send meal ID in a POST to backend
         const btnElement = document.createElement('button');
-        btnElement.innerHTML = 'Save Recipe';
-        document.body.appendChild(btnElement);
+        btnElement.innerHTML = "Save Recipe"
+        btnElement.addEventListener('click', () => fetchSaveRecipe(recipe.id));
+        
+        // recipeDiv.append(btnElement)
+        // document.body.appendChild(btnElement);
         
 
         // email recipe
         const btnElement2 = document.createElement('button');
-
+        btnElement2.innerHTML = "Email Recipe"
+        btnElement.addEventListener('click', () => emailRecipe(recipe.sourceUrl));
         // recipe instructions
         const btnElement3 = document.createElement('button');
         // btnElement3.addEventListener("click", sendRecipe);
