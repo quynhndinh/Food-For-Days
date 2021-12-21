@@ -1,5 +1,5 @@
 const alertModalEl = document.getElementById("alert-container");
-const alertTextEl = document.getElementById("alert-text");
+const alertTextEl = document.getElementById("message");
 
 function displayMessage(alertMessage) {
     alertTextEl.textContent = alertMessage;
