@@ -1,0 +1,65 @@
+#saved-cards {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.buttonGroup2 {
+    margin-top: 15px;
+    display: flex;
+    
+    
+}
+
+.single-recipe {
+    background-color: white;
+    margin: 10px;
+    width: fit-content;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid #8dc73f;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.button2, .aa {
+    font-weight: bolder;
+    font-size: small;
+    color: black;
+    border: 3px solid #8dc73f;
+    background-color: #8dc73f;
+    border-radius: 15px;
+    margin: 10px;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    /* align-items: center; */
+}
+
+.imgsize {
+    border: 2px solid #8dc73f;
+    border-radius: 15px; 
+    margin-top: 20px;
+    width: 300px;
+    height: 200px;
+}
+/* 
+.button2 {
+    margin-top: 5px;
+} */
+
+
+h1 {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+h2 {
+    font-weight: bold;
+    
+    /* color: #8dc73f; */
+}
