@@ -1,5 +1,3 @@
-let test
-
 const loginFormHandler = async function(event) {
   event.preventDefault();
   // console.log("loginFormHandler");
@@ -33,3 +31,5 @@ const loginFormHandler = async function(event) {
 document
   .querySelector('#submit')
   .addEventListener('click', loginFormHandler);
+
+
