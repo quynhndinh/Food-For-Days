@@ -15,7 +15,10 @@
 }
 
 .buttonGroup {
+    margin-top: 15px;
     display: flex;
+    justify-content: space-evenly;
+    /* width: 150px; */
 }
 
 h2 {
@@ -23,12 +26,15 @@ h2 {
 }
 
 .imgsize {
+    border: 2px solid #8dc73f;
+    border-radius: 15px;
+    margin-top: 20px;
     width: 300px;
     height: 200px;
 }
 
 .single-recipe {
-    
+    /* background-color: #8dc73f; */
     margin: 10px;
     width: fit-content;
     padding: 25px;
@@ -40,9 +46,12 @@ h2 {
     align-items: center;
 }
 
-button {
-    height: 10px;
-    width: 30px;
+.cardButton {
+    background-color: #8dc73f;
+    border-radius: 15px;
+    margin: 10px;
+    height: 30px;
+    width: 100px;
     text-align: center;
     align-items: center;
 }
