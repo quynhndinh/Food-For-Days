@@ -1,3 +1,5 @@
+let test
+
 const loginFormHandler = async function(event) {
   event.preventDefault();
   console.log("loginFormHandler");
@@ -12,14 +14,22 @@ const loginFormHandler = async function(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/');
-    sessionStorage.setItem("loggedIn", "true");
+    sessionStorage.setItem('loggedIn', true);
     let loggedIn = sessionStorage.getItem("loggedIn");
-    console.log ("LoggedIn = ", loggedIn);
+    test = loggedIn;
+    document.location.replace('/');
   } else {
     alert('Failed to login');
   }
+
+  if (sessionStorage.getItem('loggedIn')) {
+    document.getElementById('#login').classList.add('hide');
+    document.getElementById('#signup').classList.add('hide');
+    document.getElementById('#logout').classList.remove('hide');
+  }
 };
+
+console.log ("logged in", test);
 
 document
   .querySelector('#submit')
