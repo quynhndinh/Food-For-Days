@@ -64,24 +64,6 @@ router.post('/email', withAuth, async (req, res) => {
     });
     
 // Endpoint: /api/recipe/cuisine
-
-// router.get('/:cuisine', async (req, res) => {
-//   console.log("***********************", req.params.cuisine)
-//   try {
-//     const recipeData = await Recipe.findAll({
-//       where: {
-//         cuisine: req.params.cuisine
-//         }
-//       });
-//       res.status(200).json(recipeData);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   });
-
-
-
-// Endpoint: /api/recipe/cuisine
 router.post('/cuisine', async (req, res) => {
     try {
       const recipeData = await Recipe.findAll({

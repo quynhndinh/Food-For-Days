@@ -1,32 +1,32 @@
-$('#burgermenu').on('click', ()=> {
-  $('#dropdown').toggle('is-active')
-})
+$("#burgermenu").on("click", () => {
+  $("#dropdown").toggle("is-active");
+});
 
-// $('#select-cuisine').on('click', ()=> {
-//   $('#description').addClass('hide')
-//   console.log($(this))
-//   const option = $(this).text()
-//   console.log(option)
-// })
-
-$(document).ready(function(){
-  $("#select-button").click(function(){
+$(document).ready(function () {
+  $("#select-button").click(function () {
     $("#description").empty();
   });
 });
 
-// $('#select-cuisine').on('click', ()=> {
-//   $('#description').addClass('hide')
-//   $("#choice").val($(this).text());
-//   console.log(this)
-//   })
+const submitBtn = document.getElementById("select-button");
+const dropdownEl = document.getElementById("selection-list");
 
+submitBtn.addEventListener("click", () => getCuisineData(dropdownEl.value));
 
-// const searchBtn = document.getElementById('#search-button')
+function getCuisineData(cuisine) {
+  return fetch("/api/recipe/cuisine", {
+    method: "POST",
+    body: JSON.stringify({ cuisine }),
+    headers: { "Content-Type": "application/json" },
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      var cuisine = JSON.stringify(data);
+      console.log(cuisine);
+      return cuisine; // <---create recipes card here
+    });
+}
 
-// searchBtn.addEventListener('click', () => getCuisineData(inputField.value));
-
-dropdownEl.addEventListener(
-  "click",
-  (event) => event.key === "Enter" && submitBtn.click()
-);
+getCuisineData().then((value) => console.log(value));
