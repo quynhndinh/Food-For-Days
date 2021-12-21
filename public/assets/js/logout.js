@@ -5,7 +5,7 @@ const logout = async function() {
   });
 
   if (response.ok) {
-    sessionStorage.setItem('loggedIn', 'false');
+    sessionStorage.setItem("loggedIn", false);
     document.location.replace('/');
   } else {
     alert('Failed to log out');
