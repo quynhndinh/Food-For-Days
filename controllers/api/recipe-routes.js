@@ -24,18 +24,14 @@ function sendRecipe(email, sourceUrl) {
 		text: 'Here is your recipe link: '
 	};
 
-	console.log(chalk.blue('in Send Recipe email, sourceUrl ' + email + sourceUrl));
-
 	mailOptions.to = email;
 	mailOptions.text = mailOptions.text + sourceUrl;
 
-	console.log(chalk.blue('sendRecipe mailOptions: ', { mailOptions }));
-
 	transporter.sendMail(mailOptions, function(error, info) {
 		if (error) {
-			console.log(chalk.blue(error));
+			displayMessage(error);
 		} else {
-			console.log(chalk.blue('Email sent: ' + info.response));
+			displayMessage('Email sent: ' + info.response);
 		}
 	});
 }
@@ -46,7 +42,7 @@ function sendRecipe(email, sourceUrl) {
 // Params: sourceUrl url of recipe you want to send
 
 router.post('/email', withAuth, async (req, res) => {
-      console.log("in router.post");
+      // console.log("in router.post");
       try {
         
         // TODO: Retrieve recipe link from body
@@ -54,12 +50,10 @@ router.post('/email', withAuth, async (req, res) => {
         // in the await
         // Send recipe link to logged in users email 
         sendRecipe(req.session.email, req.body.sourceUrl);
-// TODO figure out what goes in the await and how to return errors properly.
-        console.log ("email: ", req.session.email, " source URL ", req.body.sourceUrl);
         
         res.status(200).json({message: `Email sent to ${req.session.email}`});
       } catch (err) {
-        console.error(err);
+        displayMessage(err);
         res.status(500).json(err);
       }
     });
@@ -83,7 +77,7 @@ router.get('/:cuisine', async (req, res) => {
 //this is adding a recipe to a user which we do through UserRecipe
 //endpoint: /api/recipe
 router.post('/', withAuth, async (req, res) => {
-	console.log("****************************")
+	// console.log("****************************")
   try {
     const newUserRecipe = await UserRecipe.create({
 	userId: req.session.userId,

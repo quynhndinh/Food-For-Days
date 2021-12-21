@@ -8,7 +8,7 @@ const { User } = require('../../models');
 // params: email and password
 router.post('/', async (req, res) => {
   try {
-    console.log(req.body)
+  
     const newUser = await User.create(req.body);
 
     req.session.save(() => {
@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
 // params: email and password
 router.post('/login', async (req, res) => {
   try {
-    console.log(req.body)
+    // console.log(req.body)
     const user = await User.findOne({
       where: {
         email: req.body.email,
@@ -69,7 +69,7 @@ router.post('/login', async (req, res) => {
 
 //URL api/user/logout
 router.post('/logout', (req, res) => {
-  console.log(req.session);
+ 
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();

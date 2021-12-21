@@ -2,7 +2,7 @@ let test
 
 const loginFormHandler = async function(event) {
   event.preventDefault();
-  console.log("loginFormHandler");
+  // console.log("loginFormHandler");
 
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
@@ -19,7 +19,7 @@ const loginFormHandler = async function(event) {
     test = loggedIn;
     document.location.replace('/');
   } else {
-    alert('Failed to login');
+    displayMessage('Failed to login');
   }
 
   if (sessionStorage.getItem('loggedIn')) {
@@ -29,7 +29,6 @@ const loginFormHandler = async function(event) {
   }
 };
 
-console.log ("logged in", test);
 
 document
   .querySelector('#submit')
