@@ -8,12 +8,12 @@ const withAuth = require('../utils/auth');
 
 router.get('/', (req, res) => {
   console.log("GET /");
-  res.sendFile(path.join(__dirname, '../public/index.html'))
+  res.sendFile(path.join(__dirname, '../public/home.html'))
 });
 
 router.get('/cookbook', withAuth, (req, res) => {
   console.log("GET /cookbook");
   res.sendFile(path.join(__dirname, '../public/cookbook.html'));
-})
+});
 
 module.exports = router;

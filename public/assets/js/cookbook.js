@@ -1,7 +1,21 @@
-const getCookbook = async () => {
-    const response = await fetch("/cookbook");
-    if (response.ok) {
+// event listener
+//homeLink
+//cookbookLink = document.elementbyid
+
+document.getElementById("saved-cards")
+// .onload()= function() {generateSavedCards()};
+async function generateSavedCards () {
+    console.log("generateSavedCards")
+    const response = await fetch("/api/cookbook", {
+        method: "GET",
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (!response.ok) {
+        alert("Please login");
     } else {
-        alert("Please login!");
+        const recipes = await response.json();
+        console.log("Recipes******", recipes);
+        // renderCards();
     }
 }
+generateSavedCards();
