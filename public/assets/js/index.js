@@ -23,8 +23,8 @@ let bodyElement = document.body;
 
     //         //The document.createElement() method create html elements specified by tagName
     //         let cardElement = document.createElement('div');
-    //         let imageContainer = document.createElement('div');
-    //         let infoContainer = document.createElement('div');
+            // let imageContainer = document.createElement('div');
+            // let infoContainer = document.createElement('div');
             
     //         let imageElement = document.createElement('img');
     //         let titleElement = document.createElement('h5');
@@ -49,7 +49,7 @@ let bodyElement = document.body;
     //         imageElement.src = recipesData[i].image;
 
     //         // This sets the value of an attribute specified element. If exists then will be updated, otherwise the new attribute is added with the specified name and value
-    //         btnElement.setAttribute("href", recipesData[i].source_url);
+            
     
 
     //         // title, servings, ready in
@@ -111,6 +111,8 @@ function handleCuisineSubmit(event) {
 var cuisineDropDown = document.getElementById('cuisine');
     cuisineDropDown.addEventListener('change', getRecipeData); 
 
+
+
 async function getRecipeData() {
     // var chosenCuisine = cuisineDropDown.value;
   
@@ -118,11 +120,54 @@ async function getRecipeData() {
     // console.log(cuisineValue);
     var cuisine = cuisineDropDown.value;
     // console.log(cuisine);
-    const response = await fetch(`/api/recipe/${cuisine}`);
-    const selectedRecipes = response.json();
+   const allRecipesDiv =  document.getElementById('recipeSection')
+   allRecipesDiv.innerHTML = '';
+   const response = await fetch(`/api/recipe/${cuisine}`);
+   const selectedRecipes = await response.json();
     console.log(selectedRecipes);
+    selectedRecipes.forEach((recipe) => {
+        // const cardEl = document.createElement('div')
+        // const imageContainer = document.createElement('div');
+        // const infoContainer = document.createElement('div');
+        const recipeDiv = document.createElement('div');
+        const recipeTitleEl = document.createElement('h2');
+        const recipeImgEl = document.createElement('img');
+
+        // save recipe
+        // when button is clicked --> send meal ID in a POST to backend
+        const btnElement = document.createElement('button');
+        btnElement.innerHTML = 'Save Recipe';
+        document.body.appendChild(btnElement);
+        
+
+        // email recipe
+        const btnElement2 = document.createElement('button');
+
+        // recipe instructions
+        const btnElement3 = document.createElement('button');
+        // btnElement3.addEventListener("click", sendRecipe);
+        // btnElement = setAttribute('class', btn)
+        // btnElement.addEventListener('click', recipe.sourceUrl)
+        recipeImgEl.setAttribute('src', recipe.image)
+        recipeTitleEl.textContent = recipe.title
+        // cardEl.append(imageContainer, infoContainer)
+        
+        recipeDiv.append(recipeTitleEl)
+        recipeDiv.append(recipeImgEl)
+        recipeDiv.append(btnElement)
+        recipeDiv.append(btnElement2)
+        recipeDiv.append(btnElement3)
+
+        recipeDiv.classList.add("single-recipe");
+        recipeImgEl.classList.add("imgsize");
+        allRecipesDiv.append(recipeDiv)
+    })
     
 }
+
+// sendRecipe() {
+//     var recipedID = currentciusin.recipe.id
+// }
 
 
 
