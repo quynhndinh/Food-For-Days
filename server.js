@@ -27,7 +27,8 @@ app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // Set static content to the public foler
-app.use(express.static(path.join(__dirname, 'public')));
+// use public folder for css
+app.use(express.static('public'));
 
 // Setup routing middleware
 app.use(routes);
