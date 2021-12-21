@@ -21,7 +21,7 @@ const loginFormHandler = async function(event) {
   } else {
     alert('Failed to login');
   }
-
+  
   if (sessionStorage.getItem('loggedIn')) {
     document.getElementById('#login').classList.add('.hide');
     document.getElementById('#signup').classList.add('.hide');
