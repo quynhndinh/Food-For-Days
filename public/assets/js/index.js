@@ -111,16 +111,6 @@ function handleCuisineSubmit(event) {
 var cuisineDropDown = document.getElementById('cuisine');
     cuisineDropDown.addEventListener('change', getRecipeData); 
 
-async function fetchSaveRecipe() {
-    var cuisine = cuisineDropDown.value;
-    // console.log(getRecipeData().selectedRecipes)
-    // var cuisine = cuisineDropDown.value;
-    // const response = await fetch(`/api/recipe/${cuisine}`);
-    // const selectedRecipes = await response.json();
-    // console.log(selectedRecipes);
-    // selectedRecipes.forEach((recipe) => {
-    //     console.log(recipe.Id)
-}
 
 
 async function getRecipeData() {
@@ -150,23 +140,17 @@ async function getRecipeData() {
         // save recipe
         // when button is clicked --> send meal ID in a POST to backend
         const btnElement = document.createElement('button');
-        btnElement.innerHTML = "Save Recipe"
-        btnElement.addEventListener('click', fetchSaveRecipe)
-        
-        // recipeDiv.append(btnElement)
-        // document.body.appendChild(btnElement);
+        btnElement.innerHTML = 'Save Recipe';
+        document.body.appendChild(btnElement);
         
 
         // email recipe
         const btnElement2 = document.createElement('button');
-        btnElement2.innerHTML = "Email Recipe"
 
         // recipe instructions
         const btnElement3 = document.createElement('button');
-        btnElement3.innerHTML = "Instructions"
         // btnElement3.addEventListener("click", sendRecipe);
-        // btnElement3 = setAttribute('href', recipe.sourceUrl)
-        // btnElement.innerText = 'Save Recipe'
+        // btnElement = setAttribute('class', btn)
         // btnElement.addEventListener('click', recipe.sourceUrl)
         recipeImgEl.setAttribute('src', recipe.image)
         recipeTitleEl.textContent = recipe.title
@@ -184,11 +168,7 @@ async function getRecipeData() {
         // recipeDiv.append(btnElement2)
         // recipeDiv.append(btnElement3)
         buttonContainer.append(btnElement, btnElement2, btnElement3)
-        recipeDiv.appendChild(buttonContainer)
 
-        btnElement.classList.add('cardButton')
-        btnElement2.classList.add('cardButton')
-        btnElement3.classList.add('cardButton')
         buttonContainer.classList.add("buttonGroup")
         recipeDiv.classList.add("single-recipe");
         recipeImgEl.classList.add("imgsize");
@@ -196,8 +176,6 @@ async function getRecipeData() {
     })
     
 }
-
-
 
 // sendRecipe() {
 //     var recipedID = currentciusin.recipe.id
@@ -255,3 +233,28 @@ async function getRecipeData() {
 // $('body').on('click', '.delete-row', function (e) {
 //     $(this).closest('.employee-row').remove();
 // });
+
+
+
+    // populates database
+   
+        // const categoryData = [
+        //     {
+        //         // cuisine: 'italian
+        //         cuisine: '',
+        //     },
+        //     {
+        //         cuisine: '',
+        //     },
+        //     {
+        //         cuisine: '',
+        //     },
+        //     {
+        //         cuisine: '',
+        //     },
+        //     {
+        //         cuisine: '',
+        //     },
+        // ];
+        // const seedRecipes = () => Recipes.bulkCreate(recipeData);
+        // module.exports = seedRecipes;
