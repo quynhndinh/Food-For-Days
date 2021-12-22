@@ -160,7 +160,7 @@ async function getRecipeData() {
         // btnElement = setAttribute('class', btn)
         // btnElement.addEventListener('click', recipe.sourceUrl)
         recipeImgEl.setAttribute('src', recipe.image)
-        recipeTitleEl.textContent = recipe.title
+        recipeTitleEl.textContent = recipe.title;
         calories.textContent = "Calories: " + recipe.calories;
         servingElement.textContent = "Servings: " + recipe.servings ;
         readyEl.textContent = "Time to Cook: " + recipe.readyIn + "min";
