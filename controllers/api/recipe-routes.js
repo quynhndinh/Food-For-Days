@@ -28,9 +28,9 @@ function sendRecipe(email, sourceUrl) {
 
 	transporter.sendMail(mailOptions, function(error, info) {
 		if (error) {
-			console.log(chalk.blue(error));
+			displayMessage(error);
 		} else {
-			console.log(chalk.blue('Email sent: ' + info.response));
+			displayMessage('Email sent: ' + info.response);
 		}
 	});
 }
@@ -39,13 +39,13 @@ function sendRecipe(email, sourceUrl) {
 // Endpoint: /api/recipe/email 
 
 router.post('/email', withAuth, async (req, res) => {
-      console.log("in router.post");
+      // console.log("in router.post");
       try {
         // Send recipe link to logged in users email 
         sendRecipe(req.session.email, req.body.sourceUrl);
         res.status(200).json({message: `Email sent to ${req.session.email}`});
       } catch (err) {
-        console.error(err);
+        displayMessage(err);
         res.status(500).json(err);
       }
     });

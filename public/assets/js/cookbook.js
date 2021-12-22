@@ -42,11 +42,15 @@ async function generateSavedCards () {
             btnElement3.setAttribute('target', '_blank')
             btnElement3.setAttribute('href', recipe.recipe.sourceUrl);
             recipeImgEl.setAttribute('src', recipe.recipe.image)
-            recipeCuisine.textContent = recipe.recipe.cuisine;
+            let cuisineString = recipe.recipe.cuisine.charAt(0).toUpperCase() + 
+                recipe.recipe.cuisine.slice(1);
+                console.log("cuisineString: ", cuisineString)
+            recipeCuisine.textContent = cuisineString;
             recipeTitleEl.textContent = recipe.recipe.title;
             calories.textContent = "Calories: " + recipe.recipe.calories;
             servingElement.textContent = "Servings: " + recipe.recipe.servings ;
             readyEl.textContent = "Time to Make: " + recipe.recipe.readyIn + "min";
+            
             
             infoContainer.classList.add('cardInfo')
             btnElement.classList.add("button2")
@@ -65,6 +69,7 @@ async function generateSavedCards () {
             
             allSavedRecipes.append(recipeDiv)
         });
+        
     }
 }
 generateSavedCards();

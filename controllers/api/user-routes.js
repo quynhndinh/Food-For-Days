@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-
 // creating a new user account - sign up
 // Endpoint: /api/user
 // params: email and password
@@ -18,7 +17,6 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 // Endpoint: /api/user/login
 // params: email and password
