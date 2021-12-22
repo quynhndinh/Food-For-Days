@@ -14,7 +14,7 @@ const loginFormHandler = async function(event) {
   if (response.ok) {
     sessionStorage.setItem('loggedIn', true);
     let loggedIn = sessionStorage.getItem("loggedIn");
-    test = loggedIn;
+    // test = loggedIn;
     document.location.replace('/');
   } else {
     displayMessage('Failed to login');
@@ -27,6 +27,10 @@ const loginFormHandler = async function(event) {
   }
 };
 
+<<<<<<< HEAD
+=======
+// console.log ("logged in", test);
+>>>>>>> 29b7d0f2b58535db170d8590604b8604fa7c1634
 
 document
   .querySelector('#submit')

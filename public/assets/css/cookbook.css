@@ -10,8 +10,7 @@
 .buttonGroup2 {
     margin-top: 15px;
     display: flex;
-    
-    
+    justify-content: space-evenly;
 }
 
 .single-recipe {
@@ -26,7 +25,7 @@
     align-items: center;
 }
 
-.button2, .aa {
+.aa, .button2 {
     font-weight: bolder;
     font-size: small;
     color: black;
@@ -37,12 +36,18 @@
     height: 30px;
     width: 120px;
     text-align: center;
-    /* align-items: center; */
+    align-items: center;
 }
+
+/* .button2 {
+    border: 3px solid #8dc73f;
+    background-color: #8dc73f;
+
+} */
 
 .imgsize {
     border: 2px solid #8dc73f;
-    border-radius: 15px; 
+    border-radius: 15px 15px 0px 0px; 
     margin-top: 20px;
     width: 300px;
     height: 200px;
@@ -51,6 +56,15 @@
 .button2 {
     margin-top: 5px;
 } */
+
+.cardInfo {
+    border-radius: 0px 0px 15px 15px;
+    background-color: #8dc73f;
+    width: 300px;
+    font-weight: bolder;    
+    text-align:  center;
+    margin-bottom: 10px;
+}
 
 
 h1 {
