@@ -9,7 +9,7 @@ async function emailRecipe(sourceUrl) {
     if (response.ok) {
         alert('Successfully emailed recipe');
     } else {
-        alert("Failed to email recipe");
+        alert("Please sign up/log in to email recipe");
      }
 }
 
@@ -19,7 +19,8 @@ async function generateSavedCards () {
         headers: { 'Content-Type': 'application/json' },
     });
     if (!response.ok) {
-        alert("Please login");
+        alert("Please sign up or login to access Cookbook");
+        document.location.replace('/')
     } else {
         const recipes = await response.json();
         recipes.forEach((recipe) => {

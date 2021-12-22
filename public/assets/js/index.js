@@ -14,7 +14,7 @@ async function fetchSaveRecipe(recipeId) {
     if (response.ok) {
         displayMessage('Successfully saved recipe');
     } else {
-        displayMessage("Failed to save recipe");
+        displayMessage("Please sign up or sign in to save recipe");
      }
 };
 
@@ -28,7 +28,7 @@ async function emailRecipe(sourceUrl) {
     if (response.ok) {
         displayMessage('Successfully emailed recipe');
     } else {
-        displayMessage("Failed to email recipe");
+        displayMessage("Please sign in or sign up to email recipe!");
      }
   
 }
