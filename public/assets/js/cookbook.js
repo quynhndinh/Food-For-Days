@@ -1,4 +1,18 @@
 const allSavedRecipes = document.getElementById("saved-cards")
+window.onload = function() {
+    console.log("in cookbook onload session= ", sessionStorage.getItem("loggedIn"));
+	//  check if login/logout/signup should be displayed
+	if (sessionStorage.getItem("loggedIn") === "true") {
+		document.querySelector('#login').classList.add('is-hidden');
+		document.getElementById('signup').classList.add('is-hidden');
+		document.getElementById('logout').classList.remove('is-hidden');
+	}
+    else {
+        document.getElementById('login').classList.remove("is-hidden");
+        document.getElementById('signup').classList.remove('is-hidden');
+        document.getElementById('logout').classList.add('is-hidden');
+    }
+};
 
 async function emailRecipe(sourceUrl) {
     const response = await fetch(`/api/recipe/email/`,{

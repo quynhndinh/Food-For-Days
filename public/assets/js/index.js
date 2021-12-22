@@ -1,4 +1,20 @@
 let bodyElement = document.body;
+window.onload = function() {
+    console.log ("in index onload session= ", sessionStorage.getItem("loggedIn"));
+	//  check if login/logout/signup should be displayed
+	if (sessionStorage.getItem("loggedIn") === "true") {
+        console.log("is true");
+		document.querySelector('#login').classList.add('is-hidden');
+		document.getElementById('signup').classList.add('is-hidden');
+		document.getElementById('logout').classList.remove('is-hidden');
+	}
+    else {
+        console.log("is not true");
+        document.getElementById('login').classList.remove("is-hidden");
+        document.getElementById('signup').classList.remove('is-hidden');
+        document.getElementById('logout').classList.add('is-hidden');
+    }
+};
 
 var cuisineDropDown = document.getElementById('cuisine');
     cuisineDropDown.addEventListener('change', getRecipeData); 
