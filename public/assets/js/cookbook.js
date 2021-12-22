@@ -73,6 +73,7 @@ async function generateSavedCards () {
         // renderCards();
     }
 }
+generateSavedCards();
 
 
 

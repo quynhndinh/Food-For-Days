@@ -1,5 +1,3 @@
-let test
-
 const loginFormHandler = async function(event) {
   event.preventDefault();
   console.log("loginFormHandler");
@@ -16,7 +14,6 @@ const loginFormHandler = async function(event) {
   if (response.ok) {
     sessionStorage.setItem('loggedIn', true);
     let loggedIn = sessionStorage.getItem("loggedIn");
-    test = loggedIn;
     document.location.replace('/');
   } else {
     alert('Failed to login');
@@ -29,8 +26,8 @@ const loginFormHandler = async function(event) {
   }
 };
 
-console.log ("logged in", test);
-
 document
   .querySelector('#submit')
   .addEventListener('click', loginFormHandler);
+
+

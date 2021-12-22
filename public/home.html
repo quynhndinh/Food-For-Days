@@ -134,29 +134,23 @@
 <!-------- Alert modal -->
 <div class="modal" id="alert-container">
   <div class="modal-background"></div>
-  <div class="modal-content has-background-white py-5 px-5" id = "alert-text">
-    <div class="field  media-left">
-      <p class = "image is-100x100" id = "message">
-      <img src="./assets/image/food-logo.jpg" width = "100" height = "100" alt="food logo">
-    </p>
-     </div>
-    <div class = "media-content">
-      <div class = "content">
-      <p> </p>
-    </div>
-    </div>
-    </div>
+  <div class="modal-content has-background-white py-5 px-5">
+    <article class="media">
+      <figure class="media-left">
+        <p class="image" style="max-width: 100px;">
+          <img src="./assets/image/food-logo.jpg">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content" >
+          <p id='message' style="font-size: 30px; margin-top: 25px;">
+            This is an alert!
+          </p>
+        </div>
+      </div>
+    </article>
   </div>
 </div>
-<!-- <div class="modal"id="alert-container" >
-  <div class="modal-background has-background-white py-5 px-5"></div>
-  <div class="modal-content" id = "alert-text">
-    <img src="./assets/image/food-logo.jpg" width = "100" height = "100" alt="food logo">
-    <h2> Your message here</h2>
-    <!-- Any other Bulma elements you want -->
-  </div>
-  <button class="modal-close is-large" aria-label="close"></button>
-</div> -->
 
     <!-- search results w generated cards -->
     <section class="recipe-section" id="recipeSection">
@@ -178,7 +172,6 @@
           </p>
         </div>
       </footer>
-
      
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
     <script src="./assets/js/dropdown.js"></script>
