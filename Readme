@@ -32,6 +32,9 @@ You never have to cook a boring meal again!
 
 ## Usage
 
+Deployed version: (https://food-for-days.herokuapp.com)
+
+Installed version:
 > npm run seed
 > npm start
 
@@ -45,7 +48,6 @@ You never have to cook a boring meal again!
 * Express
 * node.js
 * path
-* chalk
 * NodeMailer
 * HTML
 * jQuery
@@ -55,38 +57,26 @@ You never have to cook a boring meal again!
 
 ## Contributors
 
-Steve Koutsodontis
+[Quynh Dinh](https://github.com/quynhndinh)
 
-Tyrese Exantus
+[Brian Smith](https://github.com/bjtsmith23)
 
-Linda Waterhouse
+[Linda Waterhouse](https://github.com/llwaterhouse)
 
-Katherine Gendaszek
+[Nicole Wrzosek](https://github.com/NicoleWrz)
 
 ## Questions
 
-Any questions please contact us!
-
-## Contact
-
-Check out our other work on GitHub:
-
-https://github.com/SteveKoutsodontis
-
-https://github.com/trealtye20
-
-https://github.com/llwaterhouse
-
-https://github.com/kgendaszek
+Any questions please contact us via Github!
 
 
 
 ## Website
 
-Deployed Website: https://stevekoutsodontis.github.io/Barker/
+[Deployed website](https://food-for-days.herokuapp.com/)
 
-![Final image](assets/images/final.png)
-![final image](assets/images/final-with-results.png)
+![Homepage Image](assets/images/final.png)
+![Recipes image](assets/images/final-with-results.png)
 
 
 ## License

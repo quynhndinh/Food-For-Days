@@ -16,3 +16,11 @@ signupButton.addEventListener('click', () => {
 $('.modal-background').on('click', ()=>{
   $('.modal').removeClass('is-active')
 })
+
+$('#submit').on('click', ()=>{
+  $('.modal').removeClass('is-active')
+})
+
+$('#submitx').on('click', ()=>{
+  $('.modal').removeClass('is-active')
+})
