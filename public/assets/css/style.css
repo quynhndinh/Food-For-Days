@@ -4,32 +4,22 @@
 
 #recipeSection {
     margin-top: 20px;
-    /* background-color: lightgray; */
     display: flex;
     flex-wrap: wrap;
-    /* margin-top: 50px; */
     width: fit-content;
     justify-content: center;
-    /* column-count: 2; */
     margin: 10px auto;
-    
-    /* justify-content: space-evenly; */
-    /* justify-content:  */
-    /* flex-direction: column; */
-    /* align-items: center; */
 }
 
 .buttonGroup {
     margin-top: 15px;
     display: flex;
     justify-content: space-evenly;
-    /* width: 150px; */
 }
 
 h2 {
     font-weight: bolder;
     font-size: larger;
-    /* color: #8dc73f; */
 }
 
 .cardInfo {
@@ -48,10 +38,6 @@ h2 {
     width: 300px;
     height: 200px;
 }
-/* .aa {
-    text-align: center;
-    color: black;
-} */
 
 .single-recipe {
     background-color: white;
