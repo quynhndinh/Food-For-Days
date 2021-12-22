@@ -7,7 +7,6 @@ var cuisineDropDown = document.getElementById('cuisine');
 // Save recipe to user's profile
 
 async function fetchSaveRecipe(recipeId) {
-    console.log("In fetchSave Recipe, recipeID is ", recipeId);
 
     const response = await fetch(`/api/recipe/`,{
         method: 'POST',
@@ -16,9 +15,9 @@ async function fetchSaveRecipe(recipeId) {
     });
     
     if (response.ok) {
-        alert('Successfully saved recipe');
+        displayMessage('Successfully saved recipe');
     } else {
-        alert("Failed to save recipe");
+        displayMessage("Failed to save recipe");
      }
   
 };
@@ -34,21 +33,21 @@ async function emailRecipe(sourceUrl) {
     });
     
     if (response.ok) {
-        alert('Successfully emailed recipe');
+        displayMessage('Successfully emailed recipe');
     } else {
-        alert("Failed to email recipe");
+        displayMessage("Failed to email recipe");
      }
   
 }
 
 async function getRecipeData() {
-    
+
     var cuisine = cuisineDropDown.value;
    const allRecipesDiv =  document.getElementById('recipeSection')
    allRecipesDiv.innerHTML = '';
    const response = await fetch(`/api/recipe/${cuisine}`);
    const selectedRecipes = await response.json();
-    console.log(selectedRecipes);
+    // console.log(selectedRecipes);
     selectedRecipes.forEach((recipe) => {
         
         const recipeDiv = document.createElement('div');
@@ -83,7 +82,6 @@ async function getRecipeData() {
         btnElement3.setAttribute('href', recipe.sourceUrl);
         recipeImgEl.setAttribute('src', recipe.image)
 
-        recipeTitleEl.textContent = recipe.title
         calories.textContent = "Calories: " + recipe.calories;
         servingElement.textContent = "Servings: " + recipe.servings ;
         readyEl.textContent = "Time to Make: " + recipe.readyIn + "min";

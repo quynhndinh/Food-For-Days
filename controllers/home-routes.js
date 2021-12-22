@@ -7,7 +7,7 @@ const withAuth = require('../utils/auth');
 // Endpoint: /
 
 router.get('/', (req, res) => {
-  console.log("GET /");
+  // console.log("GET /");
   res.sendFile(path.join(__dirname, '../public/home.html'))
 });
 
