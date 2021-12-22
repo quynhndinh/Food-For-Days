@@ -14,7 +14,7 @@ const loginFormHandler = async function(event) {
   if (response.ok) {
     sessionStorage.setItem('loggedIn', true);
     let loggedIn = sessionStorage.getItem("loggedIn");
-
+    
     document.location.replace('/');
   } else {
     displayMessage('Failed to login');

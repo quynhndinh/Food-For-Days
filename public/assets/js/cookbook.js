@@ -37,7 +37,6 @@ async function generateSavedCards () {
         console.log("Recipes******", recipes);
         recipes.forEach((recipe) => {
             const recipeDiv = document.createElement('div');
-            // const infoContainer = document.createElement('div')
             const buttonContainer = document.createElement('div');
             const infoContainer = document.createElement('div')
             const recipeCuisine = document.createElement('h1');
@@ -66,7 +65,7 @@ async function generateSavedCards () {
             servingElement.textContent = "Servings: " + recipe.recipe.servings ;
             readyEl.textContent = "Time to Make: " + recipe.recipe.readyIn + "min";
             
-            // console.log(recipeTitleEl);
+            
             infoContainer.classList.add('cardInfo')
             btnElement.classList.add("button2")
             buttonContainer.classList.add("buttonGroup2")
@@ -88,7 +87,7 @@ async function generateSavedCards () {
             
             
         });
-        // renderCards();
+        
     }
 }
 generateSavedCards();
