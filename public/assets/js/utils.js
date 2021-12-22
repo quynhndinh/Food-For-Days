@@ -10,5 +10,3 @@ function displayMessage(alertMessage) {
 $(".modal-background").on("click", () => {
     $(".modal").removeClass("is-active")
 })
-
-displayMessage("This is IT!");

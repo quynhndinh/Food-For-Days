@@ -1,9 +1,5 @@
 let bodyElement = document.body;
 
-
-homeLink = document.getElementById("home-link");
-cookbookLink = document.getElementById("cookbook-link");
-
 // var cuisineSubmitBtn = document.getElementById('search');
 // cuisineSubmitBtn.addEventListener("click", handleCuisineSubmit());
 
