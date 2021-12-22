@@ -1,31 +1,19 @@
-// event listener
-//homeLink
-//cookbookLink = document.elementbyid
-
 const allSavedRecipes = document.getElementById("saved-cards")
 
-
 async function emailRecipe(sourceUrl) {
-
-    console.log("in email Recipe ", sourceUrl);
     const response = await fetch(`/api/recipe/email/`,{
         method: 'POST',
         body: JSON.stringify({ sourceUrl}),
         headers: { 'Content-Type': 'application/json' },
     });
-    
     if (response.ok) {
         alert('Successfully emailed recipe');
     } else {
         alert("Failed to email recipe");
      }
-  
 }
 
-
-// .onload()= function() {generateSavedCards()};
 async function generateSavedCards () {
-    console.log("generateSavedCards")
     const response = await fetch("/api/cookbook", {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
@@ -34,7 +22,6 @@ async function generateSavedCards () {
         alert("Please login");
     } else {
         const recipes = await response.json();
-        console.log("Recipes******", recipes);
         recipes.forEach((recipe) => {
             const recipeDiv = document.createElement('div');
             const buttonContainer = document.createElement('div');
@@ -49,7 +36,6 @@ async function generateSavedCards () {
             const btnElement = document.createElement('button');
             btnElement.innerHTML = "Email Recipe";
             btnElement.addEventListener('click', () => emailRecipe(recipe.sourceUrl));
-
 
             const btnElement3 = document.createElement('a');
             btnElement3.innerHTML = "Instructions"
@@ -73,7 +59,6 @@ async function generateSavedCards () {
             recipeDiv.classList.add("single-recipe");
             recipeImgEl.classList.add("imgsize");
 
-
             recipeDiv.append(recipeCuisine)
             recipeDiv.append(recipeTitleEl)
             recipeDiv.append(recipeImgEl)
@@ -83,9 +68,6 @@ async function generateSavedCards () {
             infoContainer.append(calories, readyEl, servingElement)
             
             allSavedRecipes.append(recipeDiv)
-
-            
-            
         });
         
     }

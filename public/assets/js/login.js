@@ -1,6 +1,5 @@
 const loginFormHandler = async function(event) {
   event.preventDefault();
-  // console.log("loginFormHandler");
 
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
@@ -14,7 +13,6 @@ const loginFormHandler = async function(event) {
   if (response.ok) {
     sessionStorage.setItem('loggedIn', true);
     let loggedIn = sessionStorage.getItem("loggedIn");
-    
     document.location.replace('/');
   } else {
     displayMessage('Failed to login');

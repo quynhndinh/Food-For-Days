@@ -1,13 +1,10 @@
-
 let bodyElement = document.body;
 
 var cuisineDropDown = document.getElementById('cuisine');
     cuisineDropDown.addEventListener('change', getRecipeData); 
 
 // Save recipe to user's profile
-
 async function fetchSaveRecipe(recipeId) {
-
     const response = await fetch(`/api/recipe/`,{
         method: 'POST',
         body: JSON.stringify({ recipeId}),
@@ -19,19 +16,15 @@ async function fetchSaveRecipe(recipeId) {
     } else {
         displayMessage("Failed to save recipe");
      }
-  
 };
 
 // email recipe link to user via POST '/api/recipe/email/'
 async function emailRecipe(sourceUrl) {
-
-    console.log("in email Recipe ", sourceUrl);
     const response = await fetch(`/api/recipe/email/`,{
         method: 'POST',
         body: JSON.stringify({ sourceUrl}),
         headers: { 'Content-Type': 'application/json' },
     });
-    
     if (response.ok) {
         displayMessage('Successfully emailed recipe');
     } else {
@@ -42,14 +35,12 @@ async function emailRecipe(sourceUrl) {
 
 async function getRecipeData() {
 
-    var cuisine = cuisineDropDown.value;
+  var cuisine = cuisineDropDown.value;
    const allRecipesDiv =  document.getElementById('recipeSection')
    allRecipesDiv.innerHTML = '';
    const response = await fetch(`/api/recipe/${cuisine}`);
    const selectedRecipes = await response.json();
-    // console.log(selectedRecipes);
     selectedRecipes.forEach((recipe) => {
-        
         const recipeDiv = document.createElement('div');
         const infoContainer = document.createElement('div')
         const buttonContainer = document.createElement('div');
@@ -66,9 +57,6 @@ async function getRecipeData() {
         btnElement.innerHTML = "Save Recipe"
         btnElement.addEventListener('click', () => fetchSaveRecipe(recipe.id));
         
-        
-        
-
         // email recipe
         const btnElement2 = document.createElement('button');
         btnElement2.innerHTML = "Email Recipe"
@@ -106,5 +94,4 @@ async function getRecipeData() {
         recipeImgEl.classList.add("imgsize");
         allRecipesDiv.append(recipeDiv)
     })
-    
 }
