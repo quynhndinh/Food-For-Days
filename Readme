@@ -2,9 +2,10 @@
 
 ## Table of Contents
 * [Description](#description)
+* [Screenshots](#screenshots)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Built](#built)
+* [Built With](#built-with)
 * [Contributors](#contributors)
 * [Questions](#questions)
 * [Website](#website)
@@ -19,9 +20,17 @@ You never have to cook a boring meal again!
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Screenshots
+
+![Homepage Image](./public/assets/image/homepageSS.png)
+
+
+![Recipes image](./public/assets/image/recipeSS.png)
+
+
 ## Installation
 
-[Download mysql:
+Download mysql:
 * Login to mysql database:
 > mysql -u root -p
 > "password"
@@ -38,7 +47,7 @@ Installed version:
 > npm run seed
 > npm start
 
-* Login to mysql database:
+Login to mysql database:
 > mysql -u root -p
 > "password"
 
@@ -67,17 +76,13 @@ Installed version:
 
 ## Questions
 
-Any questions please contact us via Github!
+Any questions please contact us via our Github links above!
 
 
 
 ## Website
 
 [Deployed website](https://food-for-days.herokuapp.com/)
-
-![Homepage Image](assets/images/final.png)
-![Recipes image](assets/images/final-with-results.png)
-
 
 ## License
 
