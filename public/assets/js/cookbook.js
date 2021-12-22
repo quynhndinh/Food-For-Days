@@ -1,53 +1,19 @@
-// const getHomepage = async (event) => {
-//     console.log("getHomepage**")
-//     event.preventDefault();
-//     const homepage = await fetch ("/", {
-//         method: "GET",
-//         headers: { 'Content-Type': 'application/json' },
-//     });
-
-// homeHTML = document.getElementById("home-html");
-// homeHTML.addEventListener('click', getHomepage)
-    
-// const getCookbook = async (event) => {
-//     console.log("getCookbook**")
-//     event.preventDefault();
-//     const cookbookPage = await fetch ("/cookbook", {
-//         method: "GET",
-//     headers: { 'Content-Type': 'application/json' },
-//     })
-// }
-//     cookbookHTML = document.getElementById("cookbook-html");
-//     cookbookHTML.addEventListener('click', getCookbook)
-
-// event listener
-//homeLink
-//cookbookLink = document.elementbyid
-
 const allSavedRecipes = document.getElementById("saved-cards")
 
-
 async function emailRecipe(sourceUrl) {
-
-    console.log("in email Recipe ", sourceUrl);
     const response = await fetch(`/api/recipe/email/`,{
         method: 'POST',
         body: JSON.stringify({ sourceUrl}),
         headers: { 'Content-Type': 'application/json' },
     });
-    
     if (response.ok) {
         alert('Successfully emailed recipe');
     } else {
         alert("Failed to email recipe");
      }
-  
 }
 
-
-// .onload()= function() {generateSavedCards()};
 async function generateSavedCards () {
-    console.log("generateSavedCards")
     const response = await fetch("/api/cookbook", {
         method: "GET",
         headers: { 'Content-Type': 'application/json' },
@@ -56,10 +22,8 @@ async function generateSavedCards () {
         alert("Please login");
     } else {
         const recipes = await response.json();
-        console.log("Recipes******", recipes);
         recipes.forEach((recipe) => {
             const recipeDiv = document.createElement('div');
-            // const infoContainer = document.createElement('div')
             const buttonContainer = document.createElement('div');
             const infoContainer = document.createElement('div')
             const recipeCuisine = document.createElement('h1');
@@ -73,7 +37,6 @@ async function generateSavedCards () {
             btnElement.innerHTML = "Email Recipe";
             btnElement.addEventListener('click', () => emailRecipe(recipe.sourceUrl));
 
-
             const btnElement3 = document.createElement('a');
             btnElement3.innerHTML = "Instructions"
             btnElement3.setAttribute('target', '_blank')
@@ -85,14 +48,12 @@ async function generateSavedCards () {
             servingElement.textContent = "Servings: " + recipe.recipe.servings ;
             readyEl.textContent = "Time to Make: " + recipe.recipe.readyIn + "min";
             
-            // console.log(recipeTitleEl);
             infoContainer.classList.add('cardInfo')
             btnElement.classList.add("button2")
             buttonContainer.classList.add("buttonGroup2")
             btnElement3.classList.add('aa')
             recipeDiv.classList.add("single-recipe");
             recipeImgEl.classList.add("imgsize");
-
 
             recipeDiv.append(recipeCuisine)
             recipeDiv.append(recipeTitleEl)
@@ -104,28 +65,6 @@ async function generateSavedCards () {
             
             allSavedRecipes.append(recipeDiv)
         });
-        // renderCards();
     }
 }
 generateSavedCards();
-
-
-
-
-// document.getElementById("saved-cards")
-// // .onload()= function() {generateSavedCards()};
-// async function generateSavedCards () {
-//     console.log("generateSavedCards")
-//     const response = await fetch("/api/cookbook", {
-//         method: "GET",
-//         headers: { 'Content-Type': 'application/json' },
-//     });
-//     if (!response.ok) {
-//         alert("Please login");
-//     } else {
-//         const recipes = await response.json();
-//         console.log("Recipes******", recipes);
-//         renderCards();
-//     }
-// }
-// generateSavedCards();

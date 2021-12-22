@@ -39,12 +39,6 @@
     align-items: center;
 }
 
-/* .button2 {
-    border: 3px solid #8dc73f;
-    background-color: #8dc73f;
-
-} */
-
 .imgsize {
     border: 2px solid #8dc73f;
     border-radius: 15px 15px 0px 0px; 
@@ -52,10 +46,6 @@
     width: 300px;
     height: 200px;
 }
-/* 
-.button2 {
-    margin-top: 5px;
-} */
 
 .cardInfo {
     border-radius: 0px 0px 15px 15px;
@@ -74,6 +64,4 @@ h1 {
 
 h2 {
     font-weight: bold;
-    
-    /* color: #8dc73f; */
 }

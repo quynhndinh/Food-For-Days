@@ -4,7 +4,6 @@ const alertTextEl = document.getElementById("message");
 function displayMessage(alertMessage) {
     alertTextEl.textContent = alertMessage;
     alertModalEl.classList.add("is-active");
-
 }
 
 $(".modal-background").on("click", () => {
