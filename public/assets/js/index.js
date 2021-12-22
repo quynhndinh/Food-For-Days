@@ -167,7 +167,7 @@ async function getRecipeData() {
         recipeTitleEl.textContent = recipe.title
         calories.textContent = "Calories: " + recipe.calories;
         servingElement.textContent = "Servings: " + recipe.servings ;
-        readyEl.textContent = "Time to Cook: " + recipe.readyIn + "min";
+        readyEl.textContent = "Time to Make: " + recipe.readyIn + "min";
         // cardEl.append(imageContainer, infoContainer)
         
         recipeDiv.append(recipeTitleEl)
