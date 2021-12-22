@@ -70,6 +70,7 @@ async function getRecipeData() {
         btnElement3.setAttribute('href', recipe.sourceUrl);
         recipeImgEl.setAttribute('src', recipe.image)
 
+        recipeTitleEl.textContent = recipe.title;
         calories.textContent = "Calories: " + recipe.calories;
         servingElement.textContent = "Servings: " + recipe.servings ;
         readyEl.textContent = "Time to Make: " + recipe.readyIn + "min";
