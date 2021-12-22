@@ -57,6 +57,7 @@ async function generateSavedCards () {
             btnElement3.setAttribute('target', '_blank')
             btnElement3.setAttribute('href', recipe.recipe.sourceUrl);
             recipeImgEl.setAttribute('src', recipe.recipe.image)
+            let cuisineString = 
             recipeCuisine.textContent = recipe.recipe.cuisine;
             recipeTitleEl.textContent = recipe.recipe.title;
             calories.textContent = "Calories: " + recipe.recipe.calories;
