@@ -6,9 +6,9 @@ const logout = async function() {
 
   if (response.ok) {
     sessionStorage.setItem("loggedIn", false);
-    document.getElementById('login').classList.remove('is-hidden');
-    document.getElementById('signup').classList.remove('is-hidden');
-    document.getElementById('logout').classList.add('is-hidden');
+    // document.getElementById('login').classList.remove('is-hidden');
+    // document.getElementById('signup').classList.remove('is-hidden');
+    // document.getElementById('logout').classList.add('is-hidden');
     document.location.replace('/');
   } else {
     alert('Failed to log out');
@@ -16,6 +16,6 @@ const logout = async function() {
 
 
   }
-};
+
 
 document.querySelector('#logout').addEventListener('click', logout);

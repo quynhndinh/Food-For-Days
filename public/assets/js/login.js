@@ -13,22 +13,14 @@ const loginFormHandler = async function(event) {
 	if (response.ok) {
 		sessionStorage.setItem('loggedIn', true);
 		let loggedIn = sessionStorage.getItem('loggedIn');
-		// document.location.replace('/');
-		// $("#login").hide();
-		
-		document.querySelector('#login').classList.add('is-hidden');
-		document.getElementById('signup').classList.add('is-hidden');
-		document.getElementById('logout').classList.remove('is-hidden');
+		document.location.replace('/');		
+		// document.querySelector('#login').classList.add('is-hidden');
+		// document.getElementById('signup').classList.add('is-hidden');
+		// document.getElementById('logout').classList.remove('is-hidden');
 
 	} else {
 		displayMessage('Failed to login');
 	}
-
-	// if (sessionStorage.getItem('loggedIn')) {
-	//   document.getElementById('#login').classList.add('hide');
-	//   document.getElementById('#signup').classList.add('hide');
-	//   document.getElementById('#logout').classList.remove('hide');
-	// }
-};
+}
 
 document.querySelector('#submit').addEventListener('click', loginFormHandler);
