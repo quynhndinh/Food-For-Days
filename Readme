@@ -2,9 +2,10 @@
 
 ## Table of Contents
 * [Description](#description)
+* [Screenshots](#screenshots)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Built](#built)
+* [Built With](#built-with)
 * [Contributors](#contributors)
 * [Questions](#questions)
 * [Website](#website)
@@ -19,9 +20,17 @@ You never have to cook a boring meal again!
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Screenshots
+
+![Homepage Image](./public/assets/image/homepageSS.png)
+
+
+![Recipes image](./public/assets/image/recipeSS.png)
+
+
 ## Installation
 
-[Download mysql:
+Download mysql:
 * Login to mysql database:
 > mysql -u root -p
 > "password"
@@ -32,10 +41,13 @@ You never have to cook a boring meal again!
 
 ## Usage
 
+Deployed version: (https://food-for-days.herokuapp.com)
+
+Installed version:
 > npm run seed
 > npm start
 
-* Login to mysql database:
+Login to mysql database:
 > mysql -u root -p
 > "password"
 
@@ -45,7 +57,6 @@ You never have to cook a boring meal again!
 * Express
 * node.js
 * path
-* chalk
 * NodeMailer
 * HTML
 * jQuery
@@ -55,39 +66,23 @@ You never have to cook a boring meal again!
 
 ## Contributors
 
-Steve Koutsodontis
+[Quynh Dinh](https://github.com/quynhndinh)
 
-Tyrese Exantus
+[Brian Smith](https://github.com/bjtsmith23)
 
-Linda Waterhouse
+[Linda Waterhouse](https://github.com/llwaterhouse)
 
-Katherine Gendaszek
+[Nicole Wrzosek](https://github.com/NicoleWrz)
 
 ## Questions
 
-Any questions please contact us!
-
-## Contact
-
-Check out our other work on GitHub:
-
-https://github.com/SteveKoutsodontis
-
-https://github.com/trealtye20
-
-https://github.com/llwaterhouse
-
-https://github.com/kgendaszek
+Any questions please contact us via our Github links above!
 
 
 
 ## Website
 
-Deployed Website: https://stevekoutsodontis.github.io/Barker/
-
-![Final image](assets/images/final.png)
-![final image](assets/images/final-with-results.png)
-
+[Deployed website](https://food-for-days.herokuapp.com/)
 
 ## License
 

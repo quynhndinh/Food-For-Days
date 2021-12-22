@@ -6,16 +6,16 @@ const logout = async function() {
 
   if (response.ok) {
     sessionStorage.setItem("loggedIn", false);
+    // document.getElementById('login').classList.remove('is-hidden');
+    // document.getElementById('signup').classList.remove('is-hidden');
+    // document.getElementById('logout').classList.add('is-hidden');
     document.location.replace('/');
   } else {
     alert('Failed to log out');
   }
 
-  if (!sessionStorage.getItem('loggedIn')) {
-    document.getElementById('#login').classList.remove('hide');
-    document.getElementById('#signup').classList.remove('hide');
-    document.getElementById('#logout').classList.add('hide');
+
   }
-};
+
 
 document.querySelector('#logout').addEventListener('click', logout);
