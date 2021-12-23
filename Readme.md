@@ -18,19 +18,22 @@ The Foods For Days application reduces the stress of figuring out "what's for di
 
 You never have to cook a boring meal again!
 
+The application is fully responsive and intuitive to use. 
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Screenshots
 
-![Homepage Image](./public/assets/image/homepageSS.png)
+Homepage Image
+(./public/assets/image/homepageSS.png)
 
 
-![Recipes image](./public/assets/image/recipeSS.png)
+[Recipes image](./public/assets/image/recipeSS.png)
 
 
 ## Installation
 
-Download mysql:
+### Download mysql:
 * Login to mysql database:
 > mysql -u root -p
 > "password"
@@ -39,29 +42,42 @@ Download mysql:
 > npm i 
 
 
+
 ## Usage
 
-Deployed version: (https://food-for-days.herokuapp.com)
+### Deployed version: (https://food-for-days.herokuapp.com)
 
-Installed version:
-> npm run seed
-> npm start
+
+### Installed version:
 
 Login to mysql database:
 > mysql -u root -p
+
 > "password"
+
+> source db/schema.sql
+
+### Installed version:
+In a git bash window opened to the Food-For-Days directory, run
+> npm run seed
+
+> npm start
+
+Then open up a tab in a browser and go to 
+>localhost:3001
 
 ## Built With
 
+* Bulma
+* NodeMailer
 * Sequelize
 * Express
 * node.js
 * path
-* NodeMailer
 * HTML
 * jQuery
 * CSS
-* Bulma
+
 
 
 ## Contributors
