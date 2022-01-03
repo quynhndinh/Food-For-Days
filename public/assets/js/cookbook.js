@@ -1,6 +1,6 @@
 const allSavedRecipes = document.getElementById("saved-cards")
 window.onload = function() {
-    console.log("in cookbook onload session= ", sessionStorage.getItem("loggedIn"));
+    // console.log("in cookbook onload session= ", sessionStorage.getItem("loggedIn"));
 	//  check if login/logout/signup should be displayed
 	if (sessionStorage.getItem("loggedIn") === "true") {
 		document.querySelector('#login').classList.add('is-hidden');
@@ -15,6 +15,7 @@ window.onload = function() {
 };
 
 async function emailRecipe(sourceUrl) {
+    // console.log ("in emailRecipe, url: ", sourceUrl);
     const response = await fetch(`/api/recipe/email/`,{
         method: 'POST',
         body: JSON.stringify({ sourceUrl}),
@@ -50,7 +51,7 @@ async function generateSavedCards () {
 
             const btnElement = document.createElement('button');
             btnElement.innerHTML = "Email Recipe";
-            btnElement.addEventListener('click', () => emailRecipe(recipe.sourceUrl));
+            btnElement.addEventListener('click', () => emailRecipe(recipe.recipe.sourceUrl));
 
             const btnElement3 = document.createElement('a');
             btnElement3.innerHTML = "Instructions"
