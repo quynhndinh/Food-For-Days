@@ -59,7 +59,6 @@ async function generateSavedCards () {
             recipeImgEl.setAttribute('src', recipe.recipe.image)
             let cuisineString = recipe.recipe.cuisine.charAt(0).toUpperCase() + 
                 recipe.recipe.cuisine.slice(1);
-                console.log("cuisineString: ", cuisineString)
             recipeCuisine.textContent = cuisineString;
             recipeTitleEl.textContent = recipe.recipe.title;
             calories.textContent = "Calories: " + recipe.recipe.calories;
