@@ -25,10 +25,10 @@ The application is fully responsive and intuitive to use.
 ## Screenshots
 
 ### Homepage Image
-![Homepage Image](./public/assets/image/homepageSS.png)
+![Homepage Image](./assets/image/homepageSS.png)
 
 ### Recipes Image
-![Recipes image](./public/assets/image/recipeSS.png)
+![Recipes image](./assets/image/recipeSS.png)
 
 
 ## Installation
